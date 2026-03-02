@@ -44,3 +44,18 @@
 - **Pattern**: Lucide icons via `.dlh-i` class with inline `<svg>` elements
 - **Rule**: All custom icons use inline SVG within `<span class="dlh-i dlh-i-{size}">` wrapper
 - **Rule**: Keep SVGs minimal: viewBox, path/circle/line only, no unnecessary attributes
+
+### 10. Compare mockup CSS section-by-section, not just visually
+- **Pattern**: After initial implementation, many CSS values drifted from the mockup (wrong gradients, border-radius, padding, font-size)
+- **Rule**: When aligning theme to mockup, extract the full mockup CSS and compare property-by-property for each component
+- **Rule**: Pay attention to: `border-radius` variants (`--dlh-r` vs `--dlh-rl`), `clamp()` vs fixed sizes, gradient directions/colors
+
+### 11. Tablet paper-lines effect needs coordinated CSS
+- **Pattern**: Paper lines (horizontal ruling + left margin red line) must be applied to multiple related elements (entry-head, post-card, post-head, post-body, post-foot, quick-reply)
+- **Rule**: Use `repeating-linear-gradient` for horizontal lines, `::before` pseudo-element for left margin line
+- **Rule**: All child elements need matching `padding-left` (e.g., 52px) to clear the red margin line
+
+### 12. Mockup class names differ from theme prefix
+- **Pattern**: Mockup uses unprefixed classes (`.j-cover`, `.post`, `.cat-c`, `.pt`) while theme uses `dlh-` prefix
+- **Rule**: When translating mockup CSS, map unprefixed → prefixed (`.j-cover` → `.dlh-j-cover`, `.pt` → `.dlh-post-act`)
+- **Rule**: Keep a mental mapping table to avoid missing translations

@@ -72,6 +72,21 @@
 - [x] Responsive adjustments at 640px, 768px, 1024px
 - [x] Desktop hover effects (cards, tags, topic rows)
 
+## Phase 9: Mockup CSS Alignment ✅
+
+- [x] Cover hero: dark gradient (`linear-gradient(170deg)`) + gold stat badges + white text
+- [x] Body: `overflow-x: hidden` + `padding-bottom: 72px` for mobile bottom nav
+- [x] Entry header: `border-radius: var(--dlh-rl)`, `clamp()` font-size
+- [x] Post cards: toolbar-style actions, proper padding structure, `overflow: hidden`
+- [x] Post body: serif blockquotes, correct spacing
+- [x] Category cards: centered tape `::after`, horizontal flex layout, `:active` state
+- [x] Chapter detail banner: simplified to match mockup
+- [x] Profile: gradient banner + dashed border overlay + profile tabs
+- [x] Quick reply: journal card style with textarea/button
+- [x] Tablet (≥640px): paper lines + left margin red line on posts/entry-head
+- [x] Desktop (≥768px): updated hover effects for post actions
+- [x] Updated `recent.tpl` cover hero structure (stamp, h1 em, stats)
+
 ---
 
 ## Files Created/Modified
