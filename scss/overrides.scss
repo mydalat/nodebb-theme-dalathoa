@@ -1,43 +1,57 @@
-// only overrides to bs5 variables here
+// ══════════════════════════════════════
+// Đà Lạt Hoa — Bootstrap 5 Variable Overrides
+// Runs BEFORE BS5 compilation
+// ══════════════════════════════════════
 
-// below are the default values from harmony theme overrides.scss file
-// feel free to change these for your custom theme
+// Dalathoa palette
+$dalathoa-pri:     #313911;
+$dalathoa-pri-lt:  #4a5520;
+$dalathoa-sec:     #fdbd33;
+$dalathoa-sec-lt:  #ffeda0;
+$dalathoa-acc:     #e7672e;
+$dalathoa-bg:      #f4f2e5;
+$dalathoa-paper:   #faf8f0;
+$dalathoa-ink:     #2c3318;
+$dalathoa-bdr:     #e0dccf;
 
-// Harmony colours
-$white:    #fff !default;
-$gray-100: #f8f9fa !default;
-$gray-200: #e9ecef !default;
-$gray-300: #dee2e6 !default;
-$gray-400: #ced4da !default;
-$gray-500: #adb5bd !default;
-$gray-600: #6c757d !default;
-$gray-700: #495057 !default;
-$gray-800: #343a40 !default;
-$gray-900: #212529 !default;
-$black:    #000 !default;
+// Grey scale (warm tint)
+$white:    #fff;
+$gray-100: #faf8f0;
+$gray-200: #f4f2e5;
+$gray-300: #e0dccf;
+$gray-400: #c5c0b0;
+$gray-500: #9a9585;
+$gray-600: #6c6758;
+$gray-700: #525a62;
+$gray-800: #343a40;
+$gray-900: #272c32;
+$black:    #000;
 
-$blue:    #0d6efd !default;
-$red:     #dc3545 !default;
-$yellow:  #ffc107 !default;
-$green:   #198754 !default;
-$cyan:    #0dcaf0 !default;
+// Bootstrap colour overrides
+$blue:    #313911;
+$red:     #d9534f;
+$yellow:  #fdbd33;
+$green:   #5cb85c;
+$cyan:    #5bc0de;
 
-$primary:       $blue !default;
-$secondary:     $gray-600 !default;
-$success:       $green !default;
-$info:          $cyan !default;
-$warning:       $yellow !default;
-$danger:        $red !default;
-$light:         $gray-100 !default;
-$dark:          $gray-900 !default;
+$primary:       $dalathoa-pri;
+$secondary:     $dalathoa-sec;
+$success:       $green;
+$info:          $cyan;
+$warning:       $dalathoa-sec;
+$danger:        $red;
+$light:         $gray-100;
+$dark:          $gray-900;
 
-$body-color: $gray-800 !default;
-$body-bg: $white !default;
-$body-tertiary-bg: $gray-200 !default;
-$text-muted: $gray-600 !default;
-$border-color: $gray-200 !default;
-$link-color: shade-color($blue, 20%) !default;
+// Body
+$body-color:       $gray-900;
+$body-bg:          $dalathoa-bg;
+$body-tertiary-bg: $gray-200;
+$text-muted:       $gray-600;
+$border-color:     $dalathoa-bdr;
+$link-color:       $dalathoa-pri;
 
+// Ghost buttons (from Harmony)
 $btn-ghost-hover-color: mix($light, $dark, 90%);
 $btn-ghost-active-color: lighten($btn-ghost-hover-color, 5%);
 $btn-ghost-hover-color-dark: mix($dark, $light, 90%);
@@ -52,27 +66,36 @@ $btn-ghost-active-color-dark: lighten($btn-ghost-hover-color-dark, 5%);
 	--btn-ghost-active-color: #{$btn-ghost-active-color-dark};
 }
 
-// no caret on dropdown-toggle
+// Options
 $enable-caret: false;
-
-// disable smooth scroll, this makes window.scrollTo(0,0) in ajaxify.js take x milliseconds
 $enable-smooth-scroll: false;
-
 $enable-shadows: true;
 
+// Links
 $link-decoration: none;
-$link-hover-decoration: underline;
+$link-hover-decoration: none;
 
-// Custom fonts
-$font-family-sans-serif: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", "Liberation Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-$font-family-secondary: "Poppins", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", "Liberation Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji" !default;
+// Fonts — Dalathoa uses Be Vietnam Pro + Caveat
+$font-family-sans-serif: "Be Vietnam Pro", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", "Liberation Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+$font-family-secondary: "Caveat", cursive !default;
 $font-weight-semibold: 500 !default;
 $small-font-size: 0.875rem !default;
 
-$breadcrumb-divider: quote("→");
-$breadcrumb-divider-color: $gray-500 !default;
-$breadcrumb-active-color: $body-color !default;
-$breadcrumb-item-padding-x: 12px !default;
+// Breadcrumbs — journal style
+$breadcrumb-divider: quote("›");
+$breadcrumb-divider-color: $dalathoa-bdr;
+$breadcrumb-active-color: $body-color;
+$breadcrumb-item-padding-x: 8px;
+
+// Border radius — slightly rounder
+$border-radius:    8px;
+$border-radius-sm: 6px;
+$border-radius-lg: 12px;
+
+// Navbar
+$navbar-dark-color:          rgba(255, 255, 255, 0.55);
+$navbar-dark-hover-color:    rgba(255, 255, 255, 0.9);
+$navbar-dark-active-color:   $dalathoa-sec;
 
 .form-control::placeholder, .bootstrap-tagsinput::placeholder {
 	color: $gray-500 !important;

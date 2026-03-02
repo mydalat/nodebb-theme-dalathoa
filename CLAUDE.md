@@ -46,7 +46,7 @@ nodebb-theme-harmony (base theme)
 ## Development Notes
 
 ### Renaming Status
-- **TODO**: All config files still reference `quickstart` — need to rename to `dalathoa` across `package.json`, `plugin.json`, `theme.json`, `theme.scss`, `lib/theme.js`, `lib/controllers.js`
+- **DONE**: All config files renamed from `quickstart` to `dalathoa` (package.json, plugin.json, theme.json, theme.scss, lib/theme.js, lib/controllers.js, admin template)
 
 ### Customization Strategy
 - **Override templates**: Place `.tpl` files in `templates/` matching Harmony filenames

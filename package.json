@@ -1,7 +1,7 @@
 {
-    "name": "nodebb-theme-quickstart",
+    "name": "nodebb-theme-dalathoa",
     "version": "0.1.0",
-    "description": "Enter a description here",
+    "description": "Travel Journal theme for Đà Lạt Hoa community",
     "main": "lib/theme.js",
     "keywords": [],
     "license": "MIT",
