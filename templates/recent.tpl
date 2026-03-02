@@ -8,21 +8,21 @@
 <!-- ═══ COVER HERO ═══ -->
 <section class="dlh-j-cover">
 	<div class="dlh-j-cover-inner">
-		<div class="dlh-j-label">📖 Nhật ký Cộng đồng</div>
-		<h1 class="dlh-j-cover-title">{{{ if config.siteTitle }}}{config.siteTitle}{{{ else }}}Đà Lạt Hoa{{{ end }}}</h1>
-		<p class="dlh-j-cover-sub">Nơi lưu giữ câu chuyện, ký ức và tình yêu dành cho Đà Lạt</p>
-		<div class="dlh-stat-grid dlh-stat-grid-3">
-			<div class="dlh-stat-box">
-				<div class="sv" component="dlh/stat-users">—</div>
-				<div class="sl">Tác giả</div>
+		<div class="dlh-j-cover-stamp">📖 Nhật ký</div>
+		<h1>{{{ if config.siteTitle }}}{config.siteTitle}{{{ else }}}Đà Lạt <em>Hoa</em>{{{ end }}}</h1>
+		<p>Nơi lưu giữ câu chuyện, ký ức và tình yêu dành cho Đà Lạt</p>
+		<div class="dlh-j-stats">
+			<div class="dlh-j-stat">
+				<div class="n" component="dlh/stat-users">—</div>
+				<div class="l">Tác giả</div>
 			</div>
-			<div class="dlh-stat-box">
-				<div class="sv" component="dlh/stat-topics">—</div>
-				<div class="sl">Trang viết</div>
+			<div class="dlh-j-stat">
+				<div class="n" component="dlh/stat-topics">—</div>
+				<div class="l">Trang viết</div>
 			</div>
-			<div class="dlh-stat-box">
-				<div class="sv" component="dlh/stat-posts">—</div>
-				<div class="sl">Lượt đọc</div>
+			<div class="dlh-j-stat">
+				<div class="n" component="dlh/stat-posts">—</div>
+				<div class="l">Lượt đọc</div>
 			</div>
 		</div>
 	</div>
