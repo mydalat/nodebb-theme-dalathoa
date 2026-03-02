@@ -1,7 +1,7 @@
 {
-    "id": "nodebb-theme-quickstart",
-    "name": "My Theme Name",
-    "description": "Enter a description here",
-    "url": "https://github.com/nodebb/nodebb-theme-quickstart",
+    "id": "nodebb-theme-dalathoa",
+    "name": "Đà Lạt Hoa",
+    "description": "Travel Journal theme for Đà Lạt Hoa community — nhật ký cộng đồng Đà Lạt",
+    "url": "https://github.com/mydalat/nodebb-theme-dalathoa",
     "baseTheme": "nodebb-theme-harmony"
 }
