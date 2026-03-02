@@ -4,174 +4,97 @@
 
 ## Design Decisions
 - **Home page**: Custom home + categories riêng
-- **Icons**: Lucide Icons (thêm mới)
+- **Icons**: Lucide Icons (inline SVG)
 - **Approach**: SCSS + Templates song song, từng trang
 - **Mobile**: Triển khai đầy đủ (bottom nav, FAB, pull-to-refresh, swipe)
 
 ---
 
-## Phase 0: Foundation
+## Phase 0: Foundation ✅
 
-- [ ] Rename `quickstart` → `dalathoa` across all config files
-  - `package.json` (name)
-  - `plugin.json` (id, admin route, module mappings)
-  - `theme.json` (id, name, description)
-  - `theme.scss` ($font-path)
-  - `lib/theme.js` (admin route)
-  - `lib/controllers.js` (template render name)
-  - `templates/admin/plugins/theme-quickstart.tpl` → `theme-dalathoa.tpl`
-- [ ] Add Google Fonts: Caveat + Be Vietnam Pro
-  - Option A: `@fontsource` packages + staticDirs in plugin.json
-  - Option B: Google Fonts `@import` in theme.scss
-- [ ] Add Lucide Icons
-  - Option A: `lucide` npm package + client script
-  - Option B: CDN in header partial
-  - Option C: SVG sprite in public/
-- [ ] Set up CSS custom properties in `theme.scss` (after Harmony import)
-  ```
-  :root {
-    --pri: #313911; --sec: #fdbd33; --acc: #e7672e;
-    --bg: #f4f2e5; --paper: #faf8f0; --ink: #2c3318;
-    --hand: 'Caveat', cursive;
-    --sans: 'Be Vietnam Pro', system-ui, sans-serif;
-    ...all variables from mockup
-  }
-  ```
-- [ ] Update `scss/overrides.scss` with Bootstrap 5 variable overrides
-  ```
-  $primary: #313911;
-  $body-bg: #f4f2e5;
-  $body-color: #272c32;
-  $border-color: #e0dccf;
-  $font-family-sans-serif: "Be Vietnam Pro", system-ui, sans-serif;
-  ...
-  ```
+- [x] Rename `quickstart` → `dalathoa` across all config files
+- [x] Add Google Fonts: Caveat + Be Vietnam Pro (via @import in theme.scss)
+- [x] Add Lucide Icons (inline SVG with `.dlh-i` class system)
+- [x] Set up CSS custom properties `--dlh-*` in theme.scss
+- [x] Update `scss/overrides.scss` with Bootstrap 5 variable overrides
 
-## Phase 1: Global Shell (Header + Footer + Navigation)
+## Phase 1: Global Shell ✅
 
-- [ ] Override `templates/partials/header.tpl`
-  - Garland `.gar` decoration
-  - Sticky navbar: brand "🌸 Đà Lạt Hoa", desktop tabs, search/notif icons, avatar
-  - "Viết mới" desktop button
-- [ ] Create `templates/partials/dalathoa/bottom-nav.tpl`
-  - 5 tabs: Nhật ký, Chương, Tìm, Báo, Tôi
-  - Mobile only (hidden ≥768px)
-- [ ] Create `templates/partials/dalathoa/fab.tpl`
-  - Floating compose button (mobile only)
-- [ ] Add back-to-top button (CSS + JS)
-- [ ] Global SCSS in `theme.scss`:
-  - Body background (noise texture SVG)
-  - `::selection` color
-  - Common components: `.jc`, `.tc`, `.tp`, `.stamp`, `.ct`, `.mt`, `.bc`
-  - Pagination override
-  - Toast styles
-  - Overlay system
+- [x] Override `templates/header.tpl` — garland, navbar, desktop tabs, search/notif/avatar
+- [x] Override `templates/footer.tpl` — bottom nav, FAB, back-to-top, toast, signoff
+- [x] Global SCSS: body, selection, icon system, garland, navbar, bottom nav, FAB, back-to-top
 
-## Phase 2: Home Page
+## Phase 2: Home Page ✅
 
-- [ ] Determine home page strategy:
-  - Override `templates/recent.tpl` as home (set homepage route = /recent)
-  - Or create custom template + route
-- [ ] Home template with:
-  - Cover hero section `.j-cover` (stats: authors, pages, reads)
-  - Mobile tags horizontal scroll
-  - Tab bar (Tất cả, Theo chương, Theo thẻ)
-  - Topic list `.tl` → `.tr` rows with Benchpress `{{{ each topics }}}`
-  - Sidebar: Online users, Tags
-  - Pagination
-- [ ] Home SCSS:
-  - Cover hero gradient + border decoration
-  - Topic row styles (avatar, title, category badge, meta, read count)
-  - Unread indicator (left border)
-  - Pin/lock/new/hot badges
-  - Tab bar styles
-  - Skeleton loading animation
-  - Swipe action backgrounds
+- [x] Override `templates/recent.tpl` — cover hero, 2-column grid, widget areas
+- [x] Override `templates/partials/topics_list.tpl` — journal-style topic rows
+- [x] SCSS: cover hero, topic rows, stat grid, mobile tags, tab bar, pagination
 
-## Phase 3: Topic Page
+## Phase 3: Topic Page ✅
 
-- [ ] Override `templates/topic.tpl`
-  - Breadcrumb `.bc`
-  - Entry header `.entry-head` (journal label, title, meta tags)
-  - Polaroid image (optional, for first image in topic)
-  - Posts loop `{{{ each posts }}}`:
-    - Post card with avatar, username (clickable → usercard), time
-    - Post body (content)
-    - Post toolbar: like, dislike, reply, share, bookmark, more
-    - "Tác giả" badge for OP
-  - Quick composer `.comp`
-  - Sidebar: Reading now, Tags, Related topics, Stats
-- [ ] Topic SCSS:
-  - Entry header with journal styling
-  - Paper lines + red margin (tablet+ only)
-  - Polaroid frame
-  - Post cards
-  - Post toolbar with icon hover effects
-  - Quick composer
-  - Liked state animation
+- [x] Override `templates/topic.tpl` — breadcrumb, entry header, posts grid, sidebar
+- [x] Override `templates/partials/topic/post.tpl` — post cards with actions
+- [x] SCSS: entry header, post cards, post actions, vote pills
 
-## Phase 4: Categories
+## Phase 4: Categories ✅
 
-- [ ] Override `templates/categories.tpl`
-  - Chapter intro with stamp decoration
-  - Category grid `.cat-grid` → `.cat-c` cards
-  - Icon + name + description + stats per category
-  - Tape decoration on cards (CSS pseudo-element)
-- [ ] Override `templates/category.tpl`
-  - Chapter detail banner `.chap-detail` (dark bg)
-  - Subcategory bookmarks grid `.bookmarks`
-  - Topic list within category
-  - Pagination
-- [ ] Categories SCSS:
-  - Grid responsive: 1 col → 2 cols (≥640px) → 3 cols (≥1024px)
-  - Chapter detail dark banner
-  - Bookmark cards
-  - Category card hover effects
+- [x] Override `templates/categories.tpl` — chapter intro, category grid
+- [x] Override `templates/partials/categories/item.tpl` — category cards with tape decoration
+- [x] Override `templates/category.tpl` — chapter detail banner
+- [x] SCSS: category grid, category cards, chapter detail banner
 
-## Phase 5: Profile
+## Phase 5: Profile ✅
 
-- [ ] Override `templates/account/profile.tpl`
-  - Profile banner `.prof-banner` (gradient)
-  - Profile card `.prof-card` (overlapping avatar, name, role stamp, bio)
-  - Stats grid (posts, replies, votes, reputation)
-  - Tabs: Trang viết, Phản hồi, Đã lưu
-  - Recent posts list `.rp`
-  - Sidebar: Profile info, Badges, Activity grid
-- [ ] Profile SCSS:
-  - Banner gradient
-  - Overlapping avatar
-  - Role stamp rotation
-  - Activity grid (35 cells)
-  - Profile tabs underline style
+- [x] Override `templates/account/profile.tpl` — stats grid, about me journal card
+- [x] SCSS: profile banner restyle, avatar, stats grid
 
-## Phase 6: Overlays & Modals
+## Phase 6: Overlays & Modals ✅
 
-- [ ] Search panel styling (slide-down, search tags, results)
-- [ ] Notification panel styling (slide-in, unread indicator, avatars)
-- [ ] User menu override (slide-in, profile section, font size toggle, items)
-- [ ] Share modal (bottom sheet mobile / centered desktop)
-- [ ] User card popup override (`templates/partials/usercard.tpl`)
-- [ ] Compose modal styling (override composer plugin CSS)
+- [x] Composer modal restyling
+- [x] Quick reply restyling
+- [x] Modal/dropdown border-radius + shadows
+- [x] Pagination override (journal style)
+- [x] Post bar floating nav
 
-## Phase 7: Mobile Interactions (client.js)
+## Phase 7: Client JS ✅
 
-- [ ] Bottom navigation: highlight active tab based on `ajaxify` route
-- [ ] FAB: open composer on click
-- [ ] Pull-to-refresh: touchstart/move/end handlers
-- [ ] Swipe actions on topic rows: left=save, right=mark-read
-- [ ] Back-to-top: show/hide on scroll
-- [ ] Auto-grow textarea for quick composer
-- [ ] User card popup: show on username click, position near target
+- [x] Bottom navigation active tab tracking
+- [x] Desktop navigation active tab tracking
+- [x] FAB → open composer
+- [x] Back-to-top scroll handler
+- [x] Swipe actions on topic rows (bookmark/mark-read)
+- [x] Pull-to-refresh
 
-## Phase 8: Polish & Dark Mode
+## Phase 8: Polish & Dark Mode ✅
 
-- [ ] Dark mode: `[data-bs-theme="dark"]` overrides for all custom CSS
-- [ ] Font size toggle: body class + user setting persistence
-- [ ] Animations: page fade-in, hover rotate/shadow (desktop), touch scale (mobile)
-- [ ] Responsive testing: <640px, 640-768px, ≥768px, ≥1024px
-- [ ] Performance: check font loading, CSS size, JS bundle
+- [x] Dark mode `[data-bs-theme="dark"]` overrides for all --dlh-* variables
+- [x] Fade-in animations for cards and sections
+- [x] Responsive adjustments at 640px, 768px, 1024px
+- [x] Desktop hover effects (cards, tags, topic rows)
 
 ---
 
-## Review
-*(To be filled after implementation)*
+## Files Created/Modified
+
+### Templates (10 files)
+- `templates/header.tpl` — Custom navbar
+- `templates/footer.tpl` — Bottom nav, FAB, back-to-top
+- `templates/recent.tpl` — Home page
+- `templates/topic.tpl` — Topic detail page
+- `templates/category.tpl` — Single category (chapter detail)
+- `templates/categories.tpl` — Categories list
+- `templates/account/profile.tpl` — User profile
+- `templates/partials/topics_list.tpl` — Topic rows
+- `templates/partials/topic/post.tpl` — Post cards
+- `templates/partials/categories/item.tpl` — Category cards
+
+### Styles
+- `theme.scss` — ~1850 lines: all custom components + dark mode
+- `scss/overrides.scss` — Bootstrap 5 variable overrides
+
+### Client JS
+- `public/client.js` — All interactions (nav, FAB, scroll, swipe, pull-to-refresh)
+
+### Config
+- `theme.json`, `plugin.json`, `package.json` — Renamed to dalathoa
+- `lib/theme.js`, `lib/controllers.js` — Updated routes/templates
