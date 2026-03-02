@@ -1,7 +1,8 @@
 # CLAUDE.md - nodebb-theme-dalathoa
 
 ## Project Overview
-NodeBB theme for Dalathoa, forked from nodebb-theme-quickstart. This is a **child theme** inheriting from **nodebb-theme-harmony** (NodeBB's official base theme).
+**Đà Lạt Hoa** — Travel Journal theme for NodeBB. Child theme inheriting from **nodebb-theme-harmony**.
+Design: "nhật ký du lịch" (travel journal) with handwriting fonts, paper textures, dashed borders, stamp decorations.
 
 ## Architecture
 
@@ -11,26 +12,36 @@ nodebb-theme-harmony (base theme)
 ```
 
 ### Key Files
-- `theme.json` — Theme metadata, declares `baseTheme: "nodebb-theme-harmony"`
-- `plugin.json` — Hooks registration, client scripts, template paths, module mappings
-- `package.json` — NPM package config, compatibility `^4.0.0`
-- `theme.scss` — SCSS entry point, imports entire Harmony theme
-- `scss/overrides.scss` — Bootstrap 5 variable overrides (runs before BS5 compilation)
-- `lib/theme.js` — Server-side hooks: routes, config, widget areas, settings
-- `lib/controllers.js` — Express route controllers (admin page, user theme settings)
-- `public/client.js` — Client-side JavaScript (jQuery-based)
-- `templates/` — Benchpress `.tpl` template overrides (same filename = auto-override Harmony)
+- `theme.json` — Theme metadata (`id: nodebb-theme-dalathoa`, `baseTheme: nodebb-theme-harmony`)
+- `plugin.json` — Hooks, scripts, templates, modules, staticDirs
+- `package.json` — NPM config (`name: nodebb-theme-dalathoa`, compat `^4.0.0`)
+- `theme.scss` — SCSS entry: imports Harmony, Google Fonts, then all custom `.dlh-*` styles
+- `scss/overrides.scss` — Bootstrap 5 variable overrides (Dalathoa palette, warm greys, Be Vietnam Pro font)
+- `lib/theme.js` — Server hooks: routes (`/admin/plugins/theme-dalathoa`), config, widget areas, settings
+- `lib/controllers.js` — Express controllers (admin page, user theme settings)
+- `public/client.js` — Client JS (jQuery-based, ajaxify events)
+- `templates/` — Benchpress `.tpl` overrides (same filename = auto-override Harmony)
+- `todo.md` — Implementation plan with checkable items
+- `lessons.md` — Patterns and rules learned from corrections
+
+### Design System
+- **CSS prefix**: All custom classes use `dlh-` (dalathoa) prefix
+- **CSS variables**: `--dlh-pri`, `--dlh-sec`, `--dlh-acc`, `--dlh-bg`, `--dlh-paper`, etc.
+- **Fonts**: Caveat (handwriting/headings), Be Vietnam Pro (body), Georgia (quotes)
+- **Palette**: olive green `#313911`, golden `#fdbd33`, orange accent `#e7672e`, cream bg `#f4f2e5`
+- **Icon system**: Lucide SVG inline via `.dlh-i` classes
 
 ### Template System
 - NodeBB uses **Benchpress** template engine (`.tpl` files)
 - To override a Harmony template, create a file with the **same path/name** in `templates/`
-- Example: `templates/categories.tpl` overrides Harmony's `categories.tpl`
-- Templates use `{variable}`, `<!-- IF condition -->`, `<!-- BEGIN items -->` syntax
+- Templates use `{variable}`, `{{{ if condition }}}`, `{{{ each items }}}` syntax
 - Partials imported via `<!-- IMPORT path/to/partial.tpl -->`
 
 ### SCSS/CSS System
-- `scss/overrides.scss` — Modify Bootstrap 5 / Harmony variables (colors, fonts, spacing)
-- `theme.scss` — Main entry; imports Harmony then custom styles can be appended after `@import`
+- `scss/overrides.scss` — Bootstrap 5 variables (runs BEFORE BS5 compilation)
+- `theme.scss` — Imports Harmony, then Google Fonts, then all custom dalathoa styles
+- All custom SCSS uses `.dlh-*` prefix to avoid conflicts with Harmony
+- Responsive breakpoints: mobile (<640), tablet (≥640), desktop (≥768), wide (≥1024)
 - Supports dark mode via `[data-bs-theme="dark"]`
 
 ### Hooks (plugin.json)
@@ -43,23 +54,28 @@ nodebb-theme-harmony (base theme)
 - `filter:user.profileMenu` → add theme settings link in profile
 - `filter:middleware.renderHeader` → inject Bootswatch skin options
 
-## Development Notes
+## Development Status
 
-### Renaming Status
-- **DONE**: All config files renamed from `quickstart` to `dalathoa` (package.json, plugin.json, theme.json, theme.scss, lib/theme.js, lib/controllers.js, admin template)
+### Completed
+- **Rename**: quickstart → dalathoa (all config files, routes, templates)
+- **Design system**: CSS variables, Bootstrap overrides, Google Fonts, Lucide icons
+- **Global SCSS**: navbar, bottom nav, FAB, back-to-top, journal cards, tag pills, stamps, topic rows, tab bar, pagination, overlay, toast, skeleton loading — all responsive
 
-### Customization Strategy
+### In Progress
+- Template overrides (header, home, topic, categories, profile)
+- Client JS (bottom nav, FAB, pull-to-refresh, swipe, back-to-top)
+
+### TODO
+- Override Harmony templates to match Travel Journal mockup
+- Mobile interactions (pull-to-refresh, swipe actions)
+- Dark mode custom styles
+- Font size toggle persistence
+
+## Customization Strategy
 - **Override templates**: Place `.tpl` files in `templates/` matching Harmony filenames
-- **Override styles**: Modify `scss/overrides.scss` for variables, append custom CSS in `theme.scss`
-- **Client JS**: Add behavior in `public/client.js`
+- **Override styles**: All custom SCSS appended after Harmony import in `theme.scss`
+- **Client JS**: Add behavior in `public/client.js` via `$(window).on('action:ajaxify.end', ...)`
 - **New routes**: Register in `lib/theme.js` init function, handle in `lib/controllers.js`
-
-### Integration Approach for Custom HTML/CSS
-1. Map custom HTML sections to corresponding NodeBB templates (header, categories, topic, etc.)
-2. Convert HTML to Benchpress `.tpl` format with NodeBB template variables
-3. Add custom SCSS after the Harmony import in `theme.scss`
-4. Use `scss/overrides.scss` for Bootstrap variable changes (colors, fonts)
-5. Static assets go in `public/` directory
 
 ## Commands
 - No build step required — NodeBB compiles SCSS at runtime
