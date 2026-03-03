@@ -68,7 +68,8 @@
     align-items: center;
     gap: 6px;
 
-    .fa { display: none; } // Hide FontAwesome icons
+    // Restyle FontAwesome icons to match theme
+    .fa { font-size: 13px; color: var(--dlh-txt3); }
     // Force show label text on mobile (NodeBB uses d-none/visible-md-inline)
     .d-none { display: inline !important; }
     .visible-md-inline, .visible-lg-inline { display: inline !important; }
