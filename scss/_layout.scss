@@ -11,6 +11,13 @@
   min-width: 0;
 }
 
+// Widget area header (above cover hero — full-width but constrained)
+[data-widget-area="header"] {
+  max-width: 100%;
+  overflow: hidden;
+  &:empty { display: none; }
+}
+
 // Two-column grid (main + sidebar)
 .dlh-grid2 {
   display: flex;
@@ -69,6 +76,14 @@
   display: inline-flex;
   align-items: center;
   gap: 6px;
+  max-width: 100%;
+  overflow: hidden;
+}
+
+// Main column in two-column grid
+.dlh-main {
+  min-width: 0;
+  overflow: hidden;
 }
 
 // Animations
