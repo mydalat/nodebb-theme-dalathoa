@@ -66,7 +66,7 @@
 		{{{ end }}}
 
 		<!-- Post Footer -->
-		<div component="post/footer" class="dlh-post-foot post-footer">
+		<div component="post/footer" class="dlh-post-foot dlh-pt post-footer">
 			<div class="d-flex flex-wrap-reverse gap-2 {{{ if (hideReplies || !posts.replies.count) }}}justify-content-end{{{ else }}}justify-content-between{{{ end }}}">
 				{{{ if !hideReplies }}}
 				<a component="post/reply-count" data-target-component="post/replies/container" href="#" class="dlh-post-replies d-flex gap-2 align-items-center {{{ if (!./replies || shouldHideReplyContainer(@value)) }}}hidden{{{ end }}}">

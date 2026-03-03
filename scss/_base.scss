@@ -1,0 +1,61 @@
+// ══════════════════════════════════════
+// BASE — Global resets, body, links, font size classes
+// ══════════════════════════════════════
+
+// Phase 2: Mobile overflow fix
+html {
+  overflow-x: hidden;
+}
+
+body {
+  font-family: var(--dlh-sans);
+  background: var(--dlh-bg);
+  color: var(--dlh-txt);
+  line-height: 1.7;
+  overflow-x: hidden;
+  width: 100%;
+  max-width: 100vw;
+  -webkit-font-smoothing: antialiased;
+  font-size: var(--dlh-fs-base);
+  padding-bottom: 72px;
+  // Paper noise texture
+  background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence baseFrequency='0.65' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100' height='100' filter='url(%23n)' opacity='0.015'/%3E%3C/svg%3E");
+}
+
+// Fix Harmony's flex containers causing overflow
+.d-flex.flex-column.flex-grow-1 {
+  min-width: 0;
+}
+
+#content {
+  overflow-x: hidden;
+  max-width: 100vw;
+}
+
+::selection {
+  background: var(--dlh-sec-lt);
+  color: var(--dlh-pri);
+}
+
+a {
+  color: var(--dlh-pri);
+  &:hover { color: var(--dlh-acc); }
+}
+
+// Font size classes
+body.dlh-fs-small {
+  --dlh-fs-base: 13px; --dlh-fs-sm: 11px; --dlh-fs-xs: 9px; --dlh-fs-lg: 16px;
+}
+body.dlh-fs-large {
+  --dlh-fs-base: 17px; --dlh-fs-sm: 14px; --dlh-fs-xs: 12px; --dlh-fs-lg: 20px;
+}
+body.dlh-fs-xlarge {
+  --dlh-fs-base: 19px; --dlh-fs-sm: 15px; --dlh-fs-xs: 13px; --dlh-fs-lg: 22px;
+}
+
+// Dark mode base
+[data-bs-theme="dark"] {
+  body {
+    background-image: none;
+  }
+}

@@ -35,6 +35,19 @@
 <!-- ═══ SUBCATEGORIES ═══ -->
 <!-- IMPORT partials/category/subcategory.tpl -->
 
+{{{ if ./children.length }}}
+<div class="dlh-bookmarks">
+	{{{ each ./children }}}
+	{{{ if !./isSection }}}
+	<a class="dlh-bm" href="{config.relative_path}/category/{./slug}">
+		<h5>{./name}</h5>
+		<div class="cnt">{./totalTopicCount} bài viết</div>
+	</a>
+	{{{ end }}}
+	{{{ end }}}
+</div>
+{{{ end }}}
+
 <!-- ═══ MAIN GRID ═══ -->
 <div class="dlh-grid2">
 	<div class="dlh-main category">

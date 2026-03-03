@@ -37,6 +37,12 @@
 					{{{ if ./new }}}
 					<span class="dlh-tr-new">Mới</span>
 					{{{ end }}}
+					{{{ if ./heat }}}
+					<span class="dlh-tr-hot">
+						<span class="dlh-i dlh-i-14"><svg viewBox="0 0 24 24"><path d="M8.5 14.5A2.5 2.5 0 0011 12c0-1.38-.5-2-1-3-1.07-2.14 0-5.5 3.5-7.5C17 1.5 19.5 4.02 19.5 7c0 3.5-3 7-5.5 8a2.5 2.5 0 00-2.5 2.5v2.5"/></svg></span>
+						Hot
+					</span>
+					{{{ end }}}
 				</div>
 				<div class="dlh-tr-m">
 					<a class="dlh-ct" href="{config.relative_path}/category/{./category.slug}" style="background:{./category.bgColor};color:{./category.color};">{./category.name}</a>
@@ -50,6 +56,9 @@
 					{{{ end }}}
 				</div>
 				{{{ end }}}
+			{{{ if ./teaser.content }}}
+			<div class="dlh-tr-preview">{./teaser.content}</div>
+			{{{ end }}}
 			</div>
 			<div class="dlh-tr-r">
 				<div class="dlh-tr-reads">

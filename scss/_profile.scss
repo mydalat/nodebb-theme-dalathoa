@@ -1,0 +1,113 @@
+// ══════════════════════════════════════
+// PROFILE — Banner, card, stats, tabs
+// ══════════════════════════════════════
+
+.dlh-prof-about {
+  margin-bottom: 20px;
+}
+
+.dlh-prof-stats-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.dlh-stat-time {
+  font-size: 14px;
+}
+
+.dlh-stat-text {
+  font-size: 13px;
+  word-break: break-all;
+}
+
+// Restyle Harmony's account header with journal feel
+.account .cover {
+  height: 90px;
+  background: linear-gradient(135deg, var(--dlh-pri), #526020);
+  border-radius: var(--dlh-rl) var(--dlh-rl) 0 0;
+  background-size: cover;
+  position: relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 8px;
+    border: 1px dashed rgba(253, 189, 51, 0.2);
+    border-radius: 4px;
+  }
+}
+
+// Profile card below banner
+.account .profile-card,
+.account [component="account/cover"] + * {
+  background: var(--dlh-paper);
+  border: 1px solid var(--dlh-bdr);
+  border-radius: 0 0 var(--dlh-rl) var(--dlh-rl);
+  margin-top: -1px;
+  margin-bottom: 16px;
+  text-align: center;
+  position: relative;
+}
+
+.account .avatar-wrapper {
+  border: 4px solid var(--dlh-paper);
+  box-shadow: var(--dlh-sh2);
+}
+
+.account .fullname {
+  font-family: var(--dlh-hand);
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--dlh-pri);
+}
+
+.account .username {
+  color: var(--dlh-txt3);
+}
+
+// Profile tabs — horizontal scrollable
+.account .nav-pills,
+.account .account-sub-links {
+  display: flex;
+  gap: 0;
+  margin-bottom: 14px;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  border-bottom: 1px solid var(--dlh-bdr);
+  flex-wrap: nowrap;
+  &::-webkit-scrollbar { display: none; }
+
+  .nav-link,
+  a {
+    padding: 10px 14px;
+    font-size: var(--dlh-fs-sm);
+    font-weight: 500;
+    color: var(--dlh-txt3);
+    border: none;
+    background: none;
+    font-family: var(--dlh-sans);
+    transition: all 0.2s;
+    border-bottom: 2px solid transparent;
+    white-space: nowrap;
+    min-height: var(--dlh-touch-sm);
+    display: flex;
+    align-items: center;
+    gap: 4px;
+
+    &.active, &.on {
+      color: var(--dlh-pri);
+      font-weight: 600;
+      border-bottom-color: var(--dlh-sec);
+    }
+  }
+}
+
+// Dark mode profile
+[data-bs-theme="dark"] {
+  .account .cover {
+    background-color: #151811;
+  }
+}

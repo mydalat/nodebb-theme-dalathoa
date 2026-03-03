@@ -1,0 +1,40 @@
+// ══════════════════════════════════════
+// ICONS — Lucide icon system (.dlh-i classes)
+// ══════════════════════════════════════
+.dlh-i {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+
+  svg {
+    width: 1em;
+    height: 1em;
+    stroke: currentColor;
+    stroke-width: 1.5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    fill: none;
+  }
+
+  &.dlh-i-14 svg { width: 14px; height: 14px; }
+  &.dlh-i-16 svg { width: 16px; height: 16px; }
+  &.dlh-i-18 svg { width: 18px; height: 18px; }
+  &.dlh-i-20 svg { width: 20px; height: 20px; }
+  &.dlh-i-22 svg { width: 22px; height: 22px; }
+  &.dlh-i-24 svg { width: 24px; height: 24px; }
+
+  // Filled variant for active/liked states
+  &.dlh-i-fill svg {
+    fill: currentColor;
+    stroke: none;
+  }
+}
+
+// ══════════════════════════════════════
+// GARLAND DECORATION
+// ══════════════════════════════════════
+.dlh-gar {
+  height: 28px;
+  background: url('https://dalathoa.com/assets/uploads/files/img_6830.png') repeat-x top / auto 28px;
+}

@@ -1,0 +1,167 @@
+// ══════════════════════════════════════
+// JOURNAL CARDS — .dlh-jc, tag pills, stamps, labels, online users, stat boxes
+// ══════════════════════════════════════
+
+// Journal card — shared component
+.dlh-jc {
+  background: var(--dlh-paper);
+  border-radius: var(--dlh-r);
+  padding: 16px;
+  border: 1px solid var(--dlh-bdr);
+  position: relative;
+  box-shadow: var(--dlh-sh), inset 0 0 60px rgba(244, 242, 229, 0.5);
+
+  h4 {
+    font-family: var(--dlh-hand);
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--dlh-pri);
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+
+    .dlh-i { color: var(--dlh-acc); }
+  }
+
+  &.dlh-jc-hl {
+    border-color: var(--dlh-sec);
+    background-color: var(--dlh-hl);
+  }
+}
+
+// Tag pills container
+.dlh-tc {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.dlh-tp {
+  padding: 6px 12px;
+  border-radius: 14px;
+  font-size: var(--dlh-fs-sm);
+  font-weight: 500;
+  cursor: pointer;
+  border: 1px dashed var(--dlh-bdr);
+  background: var(--dlh-paper);
+  color: var(--dlh-txt2);
+  transition: all 0.2s;
+  min-height: var(--dlh-touch-sm);
+  display: inline-flex;
+  align-items: center;
+
+  &:active {
+    border-color: var(--dlh-acc);
+    color: var(--dlh-acc);
+    border-style: solid;
+  }
+
+  &.hot {
+    border-color: var(--dlh-acc);
+    color: var(--dlh-acc);
+    border-style: solid;
+  }
+}
+
+// Stamps & labels
+.dlh-j-label {
+  font-family: var(--dlh-hand);
+  font-size: 16px;
+  color: var(--dlh-acc);
+  font-weight: 600;
+  margin-bottom: 4px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.dlh-stamp {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 12px;
+  border: 2px solid;
+  border-radius: 2px;
+  font-size: var(--dlh-fs-xs);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  transform: rotate(-2deg);
+
+  &.dlh-stamp-acc { border-color: var(--dlh-acc); color: var(--dlh-acc); }
+}
+
+// Category tags (colored pills)
+.dlh-ct {
+  font-size: var(--dlh-fs-xs);
+  padding: 6px 12px;
+  font-weight: 700;
+  color: #fff;
+  display: inline-flex;
+  align-items: center;
+  border-radius: 3px;
+  min-height: var(--dlh-touch-min);
+  white-space: nowrap;
+}
+
+.dlh-ct-ndl { background: var(--dlh-acc); }
+.dlh-ct-vy  { background: var(--dlh-ok); }
+.dlh-ct-dt  { background: var(--dlh-info); }
+.dlh-ct-ht  { background: var(--dlh-ok); }
+.dlh-ct-tb  { background: var(--dlh-ok); }
+.dlh-ct-dv  { background: #6c757d; }
+.dlh-ct-lk  { background: var(--dlh-acc); }
+
+// Meta tags (bordered)
+.dlh-mt {
+  font-size: var(--dlh-fs-xs);
+  padding: 6px 10px;
+  border: 1px dashed var(--dlh-bdr);
+  color: var(--dlh-txt3);
+  border-radius: 3px;
+  white-space: nowrap;
+  min-height: var(--dlh-touch-min);
+  display: inline-flex;
+  align-items: center;
+}
+
+// Stat grid
+.dlh-stat-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px;
+}
+
+.dlh-stat-box {
+  padding: 8px;
+  border: 1px dashed var(--dlh-bdr);
+  border-radius: 6px;
+  text-align: center;
+  .sv { font-family: var(--dlh-hand); font-size: 18px; font-weight: 700; }
+  .sl { font-size: 8px; text-transform: uppercase; letter-spacing: 1px; color: var(--dlh-txt3); }
+}
+
+// Online users
+.dlh-online-user {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.dlh-online-av {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--dlh-sec);
+  color: var(--dlh-pri);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--dlh-hand);
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.dlh-online-name { font-size: 13px; font-weight: 600; }
+.dlh-online-status { font-size: var(--dlh-fs-xs); color: var(--dlh-txt3); }

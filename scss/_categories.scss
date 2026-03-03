@@ -1,0 +1,187 @@
+// ══════════════════════════════════════
+// CATEGORIES — Category grid, chapter detail
+// (Cover hero is in _cover-hero.scss)
+// ══════════════════════════════════════
+
+// Category grid
+.dlh-cat-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+// Category card with golden tape decoration
+.dlh-cat-c {
+  background: var(--dlh-paper);
+  border: 1px solid var(--dlh-bdr);
+  border-radius: var(--dlh-r);
+  padding: 16px;
+  cursor: pointer;
+  transition: all 0.15s;
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+
+  // Golden tape decoration — centered top
+  &::after {
+    content: '';
+    position: absolute;
+    top: -4px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50px;
+    height: 10px;
+    background: rgba(253, 189, 51, 0.35);
+    border-radius: 0 0 2px 2px;
+  }
+
+  &:active {
+    background: var(--dlh-hl);
+    transform: scale(0.98);
+  }
+}
+
+.dlh-cat-link {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 0;
+  color: inherit;
+  text-decoration: none;
+  width: 100%;
+  &:hover { color: inherit; }
+}
+
+.dlh-cat-icon { font-size: 28px; flex-shrink: 0; }
+.dlh-cat-info { flex: 1; min-width: 0; }
+
+.dlh-cat-name {
+  font-family: var(--dlh-hand);
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--dlh-pri);
+  margin: 0 0 2px;
+  line-height: 1.2;
+}
+
+.dlh-cat-desc {
+  font-size: 13px;
+  color: var(--dlh-txt2);
+  line-height: 1.45;
+  margin-bottom: 4px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.dlh-cat-stats { font-size: var(--dlh-fs-xs); color: var(--dlh-txt3); }
+
+.dlh-cat-stat {
+  font-size: var(--dlh-fs-xs);
+  color: var(--dlh-txt3);
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.dlh-cat-children {
+  list-style: none;
+  padding: 8px 0 0;
+  margin: 8px 0 0;
+  border-top: 1px dashed var(--dlh-bdr);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  width: 100%;
+
+  li a {
+    font-size: var(--dlh-fs-xs);
+    color: var(--dlh-txt2);
+    padding: 3px 8px;
+    border: 1px dashed var(--dlh-bdr);
+    border-radius: 4px;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    &:hover { border-color: var(--dlh-acc); color: var(--dlh-acc); }
+  }
+}
+
+// Chapter detail banner
+.dlh-chap-detail {
+  background: var(--dlh-pri);
+  color: #fff;
+  border-radius: var(--dlh-rl);
+  padding: 20px;
+  margin-bottom: 16px;
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 8px;
+    border: 1px dashed rgba(253, 189, 51, 0.2);
+    border-radius: 6px;
+    pointer-events: none;
+  }
+
+  h2, .dlh-chap-detail-title {
+    font-family: var(--dlh-hand);
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--dlh-sec);
+    position: relative;
+    z-index: 1;
+    margin: 0 0 4px;
+  }
+
+  p, .dlh-chap-detail-desc {
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.6);
+    margin-top: 4px;
+    position: relative;
+    z-index: 1;
+    opacity: 1;
+    max-width: none;
+    line-height: 1.5;
+  }
+}
+
+.dlh-chap-detail-icon { display: none; }
+
+.dlh-chap-detail-stats {
+  display: flex;
+  gap: 14px;
+  margin-top: 10px;
+  font-size: var(--dlh-fs-sm);
+  color: rgba(255, 255, 255, 0.5);
+  position: relative;
+  z-index: 1;
+  flex-wrap: wrap;
+
+  b { color: var(--dlh-sec); }
+
+  .dlh-mt {
+    border-color: rgba(255, 255, 255, 0.2);
+    color: rgba(255, 255, 255, 0.5);
+  }
+}
+
+// Dark mode
+[data-bs-theme="dark"] {
+  .dlh-cat-c {
+    background: var(--dlh-paper);
+    border-color: var(--dlh-bdr);
+    &::before { background: rgba(253, 189, 51, 0.2); }
+  }
+
+  .dlh-chap-detail {
+    box-shadow: var(--dlh-sh);
+  }
+}

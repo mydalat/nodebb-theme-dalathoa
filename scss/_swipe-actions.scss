@@ -1,0 +1,51 @@
+// ══════════════════════════════════════
+// SWIPE ACTIONS — Touch swipe reveal backgrounds for topic rows
+// ══════════════════════════════════════
+
+.dlh-tr-wrap {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--dlh-r);
+}
+
+// Swipe background layer
+.dlh-tr-swipe-bg {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  pointer-events: none;
+}
+
+// Left swipe — bookmark/save (green)
+.dlh-tr-swipe-left {
+  flex: 1;
+  background: var(--dlh-ok);
+  display: flex;
+  align-items: center;
+  padding-left: 16px;
+  color: #fff;
+  font-size: var(--dlh-fs-sm);
+  font-weight: 600;
+  gap: 6px;
+  opacity: 0;
+  transition: opacity 0.15s;
+}
+
+// Right swipe — mark read (blue)
+.dlh-tr-swipe-right {
+  flex: 1;
+  background: var(--dlh-info);
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-right: 16px;
+  color: #fff;
+  font-size: var(--dlh-fs-sm);
+  font-weight: 600;
+  gap: 6px;
+  opacity: 0;
+  transition: opacity 0.15s;
+}
+
+.dlh-tr-wrap.swiping-left .dlh-tr-swipe-left { opacity: 1; }
+.dlh-tr-wrap.swiping-right .dlh-tr-swipe-right { opacity: 1; }

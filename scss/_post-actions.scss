@@ -1,0 +1,192 @@
+// ══════════════════════════════════════
+// POST ACTIONS — Post foot, act buttons, votes, toolbar, polaroid, quick reply
+// ══════════════════════════════════════
+
+.dlh-post-foot {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  padding: 4px 8px;
+  border-top: 1px dashed var(--dlh-bdr);
+}
+
+.dlh-post-actions { gap: 0; }
+
+.dlh-post-act {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 10px;
+  min-height: var(--dlh-touch-sm);
+  font-size: var(--dlh-fs-sm);
+  color: var(--dlh-txt3);
+  cursor: pointer;
+  border: none;
+  background: none;
+  font-family: var(--dlh-sans);
+  transition: all 0.12s;
+  border-radius: 6px;
+  text-decoration: none;
+
+  &:active {
+    color: var(--dlh-acc);
+    background: var(--dlh-hover);
+    transform: scale(0.9);
+  }
+  &:active .dlh-i { transform: scale(1.2); }
+  .dlh-i { transition: transform 0.15s; }
+  b { font-weight: 700; color: var(--dlh-txt); }
+
+  &.on, &.upvoted {
+    color: var(--dlh-acc);
+    .dlh-i svg { fill: var(--dlh-acc); stroke: var(--dlh-acc); }
+  }
+  &.downvoted { color: var(--dlh-danger); }
+}
+
+.dlh-post-votes {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.dlh-post-vote-count {
+  font-weight: 700;
+  color: var(--dlh-txt);
+  text-decoration: none;
+}
+
+.dlh-post-replies {
+  font-size: var(--dlh-fs-sm);
+  color: var(--dlh-txt3);
+  padding: 6px 10px;
+  border: 1px dashed var(--dlh-bdr);
+  border-radius: 6px;
+  text-decoration: none;
+  &:hover { border-color: var(--dlh-acc); color: var(--dlh-acc); }
+}
+
+// Post toolbar — flat icon bar (gap fix)
+.dlh-pt {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  padding: 4px 8px;
+  border-top: 1px dashed var(--dlh-bdr);
+}
+
+.dlh-pt-b {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  padding: 8px 10px;
+  min-height: var(--dlh-touch-sm);
+  font-size: var(--dlh-fs-sm);
+  color: var(--dlh-txt3);
+  cursor: pointer;
+  border: none;
+  background: none;
+  font-family: var(--dlh-sans);
+  transition: all 0.12s;
+  border-radius: 6px;
+  text-decoration: none;
+
+  &:active {
+    color: var(--dlh-acc);
+    background: var(--dlh-hover);
+    transform: scale(0.9);
+  }
+
+  // Liked state — filled icon
+  &.liked {
+    color: var(--dlh-acc);
+    .dlh-i svg { fill: var(--dlh-acc); stroke: var(--dlh-acc); }
+  }
+}
+
+// Polaroid photo card (gap fix)
+.dlh-polaroid {
+  background: var(--dlh-card);
+  padding: 8px 8px 32px;
+  border: 1px solid var(--dlh-bdr);
+  box-shadow: var(--dlh-sh2);
+  margin: 16px 0;
+  border-radius: 2px;
+}
+
+// Quick reply
+.quick-reply,
+[component="topic/quickreply/container"] {
+  background: var(--dlh-paper);
+  border: 1px solid var(--dlh-bdr);
+  border-radius: var(--dlh-rl);
+  padding: 16px;
+  margin-top: 16px;
+  position: relative;
+
+  h5, .quick-reply-title {
+    font-family: var(--dlh-hand);
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--dlh-pri);
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  textarea {
+    width: 100%;
+    min-height: 80px;
+    padding: 12px;
+    border: 1px dashed var(--dlh-bdr);
+    background: rgba(255, 255, 255, 0.6);
+    font-family: var(--dlh-sans);
+    font-size: var(--dlh-fs-base);
+    color: var(--dlh-ink);
+    line-height: 1.7;
+    resize: none;
+    outline: none;
+    border-radius: var(--dlh-r);
+    transition: border-color 0.2s;
+    overflow: hidden;
+
+    &:focus { border-color: var(--dlh-sec); border-style: solid; }
+    &::placeholder { color: var(--dlh-txt3); font-style: italic; }
+  }
+
+  .btn-primary, .btn[type="submit"] {
+    padding: 8px 22px;
+    background: var(--dlh-sec);
+    border: none;
+    border-radius: 20px;
+    color: var(--dlh-pri);
+    font-family: var(--dlh-hand);
+    font-size: 17px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.12s;
+    min-height: var(--dlh-touch-sm);
+    &:active { background: var(--dlh-acc); color: #fff; transform: scale(0.94); }
+  }
+}
+
+// Post bar (floating navigation)
+[component="post/bar"] {
+  background: var(--dlh-paper);
+  border: 1px solid var(--dlh-bdr);
+  border-radius: var(--dlh-r);
+  box-shadow: var(--dlh-sh2);
+}
+
+// Dark mode
+[data-bs-theme="dark"] {
+  .dlh-post-card {
+    background: var(--dlh-paper);
+    border-color: var(--dlh-bdr);
+  }
+  .dlh-post-votes {
+    border-color: var(--dlh-bdr);
+  }
+}

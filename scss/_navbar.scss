@@ -1,0 +1,141 @@
+// ══════════════════════════════════════
+// NAVBAR — Top nav bar, brand, tabs, icons, avatar, write button
+// (Bottom nav, FAB, back-to-top in _bottom-nav.scss)
+// ══════════════════════════════════════
+
+.dlh-nav {
+  position: sticky;
+  top: 0;
+  z-index: 200;
+  height: 56px;
+  padding: 0 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--dlh-pri);
+  color: #fff;
+  box-shadow: 0 3px 12px rgba(49, 57, 17, 0.2);
+  max-width: 100vw;
+}
+
+.dlh-nav-brand {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--dlh-hand);
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--dlh-sec);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.dlh-nav .spacer { flex: 1; }
+
+.dlh-nav-tabs {
+  display: none;
+  gap: 2px;
+}
+
+.dlh-nav-tab {
+  padding: 8px 14px;
+  font-size: 13px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+  border: none;
+  background: none;
+  font-family: var(--dlh-sans);
+  transition: all 0.2s;
+  border-radius: 6px;
+  min-height: var(--dlh-touch-sm);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+
+  &:hover {
+    color: #fff;
+    background: rgba(255, 255, 255, 0.08);
+  }
+
+  &.on {
+    color: var(--dlh-sec);
+    font-weight: 600;
+    background: rgba(253, 189, 51, 0.12);
+  }
+
+  .dlh-i { opacity: 0.7; }
+  &.on .dlh-i { opacity: 1; }
+}
+
+.dlh-nav-r {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+
+.dlh-nav-ic {
+  width: var(--dlh-touch-sm);
+  height: var(--dlh-touch-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  opacity: 0.55;
+  transition: all 0.2s;
+  border-radius: 50%;
+  border: none;
+  background: none;
+  color: #fff;
+  position: relative;
+
+  &:hover {
+    opacity: 1;
+    background: rgba(255, 255, 255, 0.08);
+  }
+
+  .dlh-badge {
+    position: absolute;
+    top: 2px;
+    right: 2px;
+    min-width: 16px;
+    height: 16px;
+    background: var(--dlh-acc);
+    border-radius: 8px;
+    font-size: 9px;
+    font-weight: 800;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    border: 2px solid var(--dlh-pri);
+    padding: 0 3px;
+  }
+}
+
+.dlh-nav-av {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--dlh-sec);
+  color: var(--dlh-pri);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 800;
+  cursor: pointer;
+  border: none;
+}
+
+.dlh-btn-write {
+  display: none;
+}
+
+// Dark mode navbar
+[data-bs-theme="dark"] {
+  .dlh-nav {
+    background: #151811;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.3);
+  }
+}

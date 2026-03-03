@@ -1,0 +1,76 @@
+// ══════════════════════════════════════
+// VARIABLES — CSS Custom Properties
+// ══════════════════════════════════════
+:root {
+  // Palette
+  --dlh-pri: #313911;
+  --dlh-pri-lt: #4a5520;
+  --dlh-sec: #fdbd33;
+  --dlh-sec-lt: #ffeda0;
+  --dlh-acc: #e7672e;
+  --dlh-ok: #5cb85c;
+  --dlh-info: #5bc0de;
+  --dlh-danger: #d9534f;
+
+  // Surfaces
+  --dlh-bg: #f4f2e5;
+  --dlh-card: #ffffff;
+  --dlh-hl: #fff2bb;
+  --dlh-paper: #faf8f0;
+  --dlh-paper-line: rgba(49, 57, 17, 0.06);
+
+  // Ink
+  --dlh-ink: #2c3318;
+  --dlh-ink-light: rgba(49, 57, 17, 0.5);
+  --dlh-txt: #272c32;
+  --dlh-txt2: #4a5259;
+  --dlh-txt3: #525a62;
+
+  // Borders & shadows
+  --dlh-bdr: #e0dccf;
+  --dlh-bdr-w: rgba(253, 189, 51, 0.2);
+  --dlh-hover: rgba(253, 189, 51, 0.08);
+  --dlh-r: 8px;
+  --dlh-rl: 12px;
+  --dlh-sh: 0 2px 8px rgba(49, 57, 17, 0.06);
+  --dlh-sh2: 0 6px 20px rgba(49, 57, 17, 0.1);
+  --dlh-sh3: 0 12px 40px rgba(49, 57, 17, 0.18);
+  --dlh-overlay: rgba(44, 51, 24, 0.55);
+
+  // Typography
+  --dlh-hand: 'Caveat', cursive;
+  --dlh-serif: Georgia, 'Times New Roman', serif;
+  --dlh-sans: 'Be Vietnam Pro', system-ui, sans-serif;
+
+  // Sizing
+  --dlh-touch-min: 44px;
+  --dlh-touch-sm: 36px;
+  --dlh-safe-bottom: env(safe-area-inset-bottom, 0px);
+
+  // Font size scale
+  --dlh-fs-base: 15px;
+  --dlh-fs-sm: 12px;
+  --dlh-fs-xs: 10px;
+  --dlh-fs-lg: 18px;
+}
+
+// Dark mode overrides
+[data-bs-theme="dark"] {
+  --dlh-bg: #1a1d12;
+  --dlh-card: #242718;
+  --dlh-paper: #1e2114;
+  --dlh-paper-line: rgba(253, 189, 51, 0.06);
+  --dlh-hl: rgba(253, 189, 51, 0.1);
+  --dlh-ink: #d4d8c4;
+  --dlh-ink-light: rgba(212, 216, 196, 0.4);
+  --dlh-txt: #e0e4d0;
+  --dlh-txt2: #a8ac98;
+  --dlh-txt3: #7c806c;
+  --dlh-bdr: #3a3d2a;
+  --dlh-bdr-w: rgba(253, 189, 51, 0.15);
+  --dlh-hover: rgba(253, 189, 51, 0.06);
+  --dlh-sh: 0 2px 8px rgba(0, 0, 0, 0.2);
+  --dlh-sh2: 0 6px 20px rgba(0, 0, 0, 0.3);
+  --dlh-sh3: 0 12px 40px rgba(0, 0, 0, 0.4);
+  --dlh-overlay: rgba(0, 0, 0, 0.65);
+}

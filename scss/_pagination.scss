@@ -1,0 +1,55 @@
+// ══════════════════════════════════════
+// PAGINATION & SKELETON — Hand-drawn pagination, shimmer loading
+// ══════════════════════════════════════
+
+// Pagination container
+.dlh-pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  padding: 16px 0;
+  margin-top: 8px;
+}
+
+// Hand-drawn style pagination button with Caveat font
+.dlh-pg-btn {
+  min-width: var(--dlh-touch-sm);
+  height: var(--dlh-touch-sm);
+  border: 1px dashed var(--dlh-bdr);
+  background: var(--dlh-paper);
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--dlh-hand);
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--dlh-txt2);
+  cursor: pointer;
+  padding: 0 10px;
+  transition: transform 0.12s;
+
+  &:active { transform: scale(0.9); background: var(--dlh-hl); }
+  &.on { background: var(--dlh-sec); border-color: var(--dlh-sec); color: var(--dlh-pri); border-style: solid; }
+  &.disabled { opacity: 0.3; cursor: default; }
+}
+
+.dlh-pg-dots {
+  font-size: 14px;
+  color: var(--dlh-txt3);
+  padding: 0 4px;
+}
+
+// Skeleton loading shimmer
+.dlh-skeleton {
+  background: linear-gradient(90deg, var(--dlh-bdr) 25%, rgba(255, 255, 255, 0.4) 50%, var(--dlh-bdr) 75%);
+  background-size: 200% 100%;
+  animation: dlhShimmer 1.5s infinite;
+  border-radius: 4px;
+}
+
+@keyframes dlhShimmer {
+  from { background-position: 200% 0; }
+  to { background-position: -200% 0; }
+}

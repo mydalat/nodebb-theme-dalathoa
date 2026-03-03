@@ -191,11 +191,47 @@ $(document).ready(function () {
 		}
 	}
 
+	// ═══ FONT SIZE TOGGLE — Persist via localStorage ═══
+	function initFontSize() {
+		var saved = localStorage.getItem('dlh-font-size');
+		if (saved) {
+			document.body.classList.remove('dlh-fs-small', 'dlh-fs-large', 'dlh-fs-xlarge');
+			if (saved !== 'default') {
+				document.body.classList.add(saved);
+			}
+		}
+	}
+
+	// Expose globally for inline onclick handlers
+	window.dlhSetFontSize = function (cls) {
+		document.body.classList.remove('dlh-fs-small', 'dlh-fs-large', 'dlh-fs-xlarge');
+		if (cls) {
+			document.body.classList.add(cls);
+		}
+		localStorage.setItem('dlh-font-size', cls || 'default');
+	};
+
+	// ═══ TAB BAR — Filter navigation on recent page ═══
+	$(document).on('click', '.dlh-tb-b', function () {
+		var $btn = $(this);
+		var filter = $btn.data('filter');
+		$('.dlh-tb-b').removeClass('on');
+		$btn.addClass('on');
+
+		if (filter === 'categories') {
+			ajaxify.go('categories');
+		} else if (filter === 'tags') {
+			ajaxify.go('tags');
+		}
+		// 'recent' stays on current page (default)
+	});
+
 	// ═══ INIT + PAGE CHANGE ═══
 	$(window).on('action:ajaxify.end', function () {
 		updateBottomNav();
 		updateDesktopNav();
 		updateStats();
+		initFontSize();
 	});
 
 	// Initial state
@@ -203,4 +239,5 @@ $(document).ready(function () {
 	updateDesktopNav();
 	updateStats();
 	updateGarland();
+	initFontSize();
 });

@@ -8,9 +8,9 @@
 <!-- ═══ COVER HERO ═══ -->
 <section class="dlh-j-cover">
 	<div class="dlh-j-cover-inner">
-		<div class="dlh-j-cover-stamp">📖 Nhật ký</div>
-		<h1>{{{ if config.siteTitle }}}{config.siteTitle}{{{ else }}}Đà Lạt <em>Hoa</em>{{{ end }}}</h1>
-		<p>Nơi lưu giữ câu chuyện, ký ức và tình yêu dành cho Đà Lạt</p>
+		<div class="dlh-j-cover-stamp">✦ EST. 2023 ✦</div>
+		<h1>Nhật ký<br><em>Đà Lạt</em></h1>
+		<p>Mỗi câu chuyện là một trang nhật ký — nơi người Đà Lạt kể về thành phố sương mù qua ảnh xưa, vườn yên, và những đổi thay.</p>
 		<div class="dlh-j-stats">
 			<div class="dlh-j-stat">
 				<div class="n" component="dlh/stat-users">—</div>
@@ -28,11 +28,39 @@
 	</div>
 </section>
 
+<!-- Mobile tags bar -->
+<div class="dlh-mobile-tags">
+	<span class="dlh-tp hot">#đàlạt</span>
+	<span class="dlh-tp">#đôthịhóa</span>
+	<span class="dlh-tp hot">#ngườiđàlạt</span>
+	<span class="dlh-tp">#ảnhxưa</span>
+	<span class="dlh-tp">#vườnyên</span>
+</div>
+
 <!-- ═══ MAIN GRID ═══ -->
 <div class="dlh-grid2">
 	<!-- Main Column -->
 	<div class="dlh-main">
+		<!-- Tab bar -->
+		<div class="dlh-tb">
+			<button class="dlh-tb-b on" data-filter="recent">
+				<span class="dlh-i dlh-i-14"><svg viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z"/><path d="M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z"/></svg></span>
+				Tất cả
+			</button>
+			<button class="dlh-tb-b" data-filter="categories">
+				<span class="dlh-i dlh-i-14"><svg viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/></svg></span>
+				Theo chương
+			</button>
+			<button class="dlh-tb-b" data-filter="tags">
+				<span class="dlh-i dlh-i-14"><svg viewBox="0 0 24 24"><path d="M20.59 13.41l-7.17 7.17a2 2 0 01-2.83 0L2 12V2h10l8.59 8.59a2 2 0 010 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg></span>
+				Theo thẻ
+			</button>
+		</div>
 		<!-- IMPORT partials/topic-list-bar.tpl -->
+		<div class="dlh-stitle">
+			<span class="dlh-i dlh-i-20"><svg viewBox="0 0 24 24"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></span>
+			Mới nhất
+		</div>
 		<!-- IMPORT partials/topics_list.tpl -->
 		{{{ if config.usePagination }}}
 		<!-- IMPORT partials/paginator.tpl -->

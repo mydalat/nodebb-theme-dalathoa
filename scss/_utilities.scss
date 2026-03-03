@@ -1,0 +1,36 @@
+// ══════════════════════════════════════
+// UTILITIES — Signoff, mobile tags, mock-bar, misc
+// ══════════════════════════════════════
+
+// Footer signoff
+.dlh-signoff {
+  text-align: center;
+  padding: 24px 16px;
+  margin-top: 16px;
+  border-top: 2px dashed var(--dlh-bdr);
+}
+
+.dlh-signoff-title {
+  font-family: var(--dlh-hand);
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--dlh-pri);
+}
+
+.dlh-signoff-sub {
+  font-size: var(--dlh-fs-xs);
+  color: var(--dlh-txt3);
+  font-style: italic;
+  margin-top: 2px;
+}
+
+// Mobile tags strip — horizontal scrolling
+.dlh-mobile-tags {
+  display: flex;
+  gap: 6px;
+  padding: 0 0 14px;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  &::-webkit-scrollbar { display: none; }
+}
