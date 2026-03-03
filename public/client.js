@@ -161,13 +161,46 @@ $(document).ready(function () {
 		pulling = false;
 	}, { passive: true });
 
+	// ═══ STATS — Populate hero stats via NodeBB global config ═══
+	function updateStats() {
+		if (ajaxify.data && ajaxify.data.template && ajaxify.data.template.name === 'recent') {
+			// Use socket to get global stats (no admin auth required)
+			require(['api'], function (api) {
+				api.get('/admin/dashboard', {}).then(function (data) {
+					if (data && data.stats) {
+						$('[component="dlh/stat-users"]').text(data.stats.users || '—');
+						$('[component="dlh/stat-topics"]').text(data.stats.topics || '—');
+						$('[component="dlh/stat-posts"]').text(data.stats.posts || '—');
+					}
+				}).catch(function () {
+					// Fallback: use config if available
+					if (ajaxify.data.topicCount !== undefined) {
+						$('[component="dlh/stat-topics"]').text(ajaxify.data.topicCount);
+					}
+				});
+			});
+		}
+	}
+
+	// ═══ GARLAND — Show only in December–January (holiday season) ═══
+	function updateGarland() {
+		var month = new Date().getMonth(); // 0-indexed
+		var $gar = $('.dlh-gar');
+		if (month !== 11 && month !== 0) {
+			$gar.hide();
+		}
+	}
+
 	// ═══ INIT + PAGE CHANGE ═══
 	$(window).on('action:ajaxify.end', function () {
 		updateBottomNav();
 		updateDesktopNav();
+		updateStats();
 	});
 
 	// Initial state
 	updateBottomNav();
 	updateDesktopNav();
+	updateStats();
+	updateGarland();
 });

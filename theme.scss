@@ -397,7 +397,7 @@ body.dlh-fs-xlarge {
 // LAYOUT — WRAP & GRID
 // ══════════════════════════════════════
 .dlh-wrap {
-  max-width: 1080px;
+  max-width: 1200px;
   margin: 0 auto;
   padding: 16px 12px 32px;
 }
@@ -513,13 +513,13 @@ body.dlh-fs-xlarge {
 // Category tags (colored pills)
 .dlh-ct {
   font-size: var(--dlh-fs-xs);
-  padding: 4px 10px;
+  padding: 6px 12px;
   font-weight: 700;
   color: #fff;
   display: inline-flex;
   align-items: center;
   border-radius: 3px;
-  min-height: 24px;
+  min-height: var(--dlh-touch-min);
   white-space: nowrap;
 }
 
@@ -534,11 +534,14 @@ body.dlh-fs-xlarge {
 // Meta tags (bordered)
 .dlh-mt {
   font-size: var(--dlh-fs-xs);
-  padding: 3px 8px;
+  padding: 6px 10px;
   border: 1px dashed var(--dlh-bdr);
   color: var(--dlh-txt3);
   border-radius: 3px;
   white-space: nowrap;
+  min-height: var(--dlh-touch-min);
+  display: inline-flex;
+  align-items: center;
 }
 
 // Breadcrumb (journal style)
@@ -1027,7 +1030,7 @@ body.dlh-fs-xlarge {
   position: relative;
   overflow: hidden;
   background: linear-gradient(170deg, var(--dlh-pri) 0%, #3e4a1a 40%, #4a5520 100%);
-  padding: 40px 20px;
+  padding: 28px 16px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1056,11 +1059,13 @@ body.dlh-fs-xlarge {
   position: relative;
   z-index: 2;
   text-align: center;
-  max-width: 520px;
+  max-width: 100%;
+  width: 520px;
+  overflow-wrap: break-word;
 
   h1 {
     font-family: var(--dlh-hand);
-    font-size: clamp(32px, 8vw, 54px);
+    font-size: clamp(28px, 7vw, 54px);
     font-weight: 700;
     color: #fff;
     line-height: 1.1;
@@ -1283,10 +1288,13 @@ body.dlh-fs-xlarge {
 
 .dlh-tr-tag {
   font-size: var(--dlh-fs-xs);
-  padding: 2px 6px;
+  padding: 6px 10px;
   border: 1px dashed var(--dlh-bdr);
   border-radius: 3px;
   color: var(--dlh-txt3);
+  min-height: var(--dlh-touch-min);
+  display: inline-flex;
+  align-items: center;
   &:hover { border-color: var(--dlh-acc); color: var(--dlh-acc); }
 }
 
@@ -1909,6 +1917,14 @@ body.dlh-fs-xlarge {
   .dlh-wrap { padding: 20px 20px 40px; }
   .dlh-tr { padding: 14px 16px; gap: 12px; }
   .dlh-tr-pg { display: block; }
+
+  // Reset touch targets to compact on tablet+
+  .dlh-ct { min-height: 24px; padding: 4px 10px; }
+  .dlh-mt { min-height: auto; padding: 3px 8px; }
+  .dlh-tr-tag { min-height: auto; padding: 2px 6px; }
+
+  // Hero can be larger on tablet
+  .dlh-j-cover { padding: 40px 20px; }
 
   .dlh-cat-grid { grid-template-columns: 1fr 1fr; }
   .dlh-cat-c { flex-direction: column; align-items: stretch; padding: 20px; }
