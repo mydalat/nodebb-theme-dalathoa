@@ -62,8 +62,8 @@
 .dlh-tr {
   display: flex;
   align-items: flex-start;
-  gap: 10px;
-  padding: 14px 12px;
+  gap: 8px;
+  padding: 10px;
   background: var(--dlh-paper);
   border: 1px solid var(--dlh-bdr);
   cursor: pointer;
@@ -94,8 +94,8 @@
 }
 
 .dlh-tr-av {
-  width: 36px;
-  height: 36px;
+  width: 32px;
+  height: 32px;
   border-radius: 50%;
   flex-shrink: 0;
   display: flex;
@@ -116,10 +116,10 @@
   font-size: 14px;
   font-weight: 600;
   color: var(--dlh-ink);
-  margin-bottom: 3px;
+  margin-bottom: 2px;
   display: flex;
   align-items: center;
-  gap: 6px;
+  gap: 4px;
   flex-wrap: nowrap;
 }
 

@@ -95,14 +95,15 @@
 // Category tags (colored pills)
 .dlh-ct {
   font-size: var(--dlh-fs-xs);
-  padding: 6px 12px;
+  padding: 2px 8px;
   font-weight: 700;
   color: #fff;
   display: inline-flex;
   align-items: center;
   border-radius: 3px;
-  min-height: var(--dlh-touch-min);
+  min-height: 20px;
   white-space: nowrap;
+  line-height: 1.4;
 }
 
 .dlh-ct-ndl { background: var(--dlh-acc); }
