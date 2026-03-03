@@ -69,8 +69,9 @@
     gap: 6px;
 
     .fa { display: none; } // Hide FontAwesome icons
-    // Force show label text on mobile (NodeBB uses d-none d-md-inline)
+    // Force show label text on mobile (NodeBB uses d-none/visible-md-inline)
     .d-none { display: inline !important; }
+    .visible-md-inline, .visible-lg-inline { display: inline !important; }
 
     &:hover, &.show {
       border-color: var(--dlh-acc);
