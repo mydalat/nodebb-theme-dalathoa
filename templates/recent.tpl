@@ -47,20 +47,12 @@
 				<span class="dlh-i dlh-i-14"><svg viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z"/><path d="M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z"/></svg></span>
 				Tất cả
 			</button>
-			<!-- Category dropdown — tab triggers the original NodeBB dropdown -->
+			<!-- Category filter — import full NodeBB dropdown, restyle trigger -->
 			<div class="dlh-tb-dd">
-				<button class="dlh-tb-b" data-filter="categories" data-dlh-action="dropdown">
-					<span class="dlh-i dlh-i-14"><svg viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/></svg></span>
-					Theo chương
-				</button>
 				<!-- IMPORT partials/category/filter-dropdown-left.tpl -->
 			</div>
-			<!-- Tag dropdown — tab triggers the original NodeBB dropdown -->
+			<!-- Tag filter — import full NodeBB dropdown, restyle trigger -->
 			<div class="dlh-tb-dd">
-				<button class="dlh-tb-b" data-filter="tags" data-dlh-action="dropdown">
-					<span class="dlh-i dlh-i-14"><svg viewBox="0 0 24 24"><path d="M20.59 13.41l-7.17 7.17a2 2 0 01-2.83 0L2 12V2h10l8.59 8.59a2 2 0 010 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg></span>
-					Theo thẻ
-				</button>
 				<!-- IMPORT partials/tags/filter-dropdown-left.tpl -->
 			</div>
 

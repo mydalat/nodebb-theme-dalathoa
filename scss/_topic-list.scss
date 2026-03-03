@@ -49,19 +49,43 @@
   }
 }
 
-// Tab-dropdown wrapper — hides NodeBB's original trigger, shows our tab button
+// Tab-dropdown wrapper — restyle NodeBB's dropdown trigger as tab button
 .dlh-tb-dd {
   position: relative;
 
-  // Hide original NodeBB dropdown trigger button
-  > .dropdown > .dropdown-toggle,
-  > .dropdown-left > .dropdown-toggle,
-  > [component="category/dropdown"] > .dropdown-toggle,
-  > [component="tag/filter"] > .dropdown-toggle {
-    display: none !important;
+  // Restyle original trigger to look like .dlh-tb-b
+  .dropdown-toggle {
+    padding: 8px 14px;
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    border: 1px dashed var(--dlh-bdr);
+    background: var(--dlh-paper);
+    color: var(--dlh-txt3);
+    font-family: var(--dlh-sans);
+    transition: all 0.15s;
+    border-radius: 6px;
+    white-space: nowrap;
+    min-height: var(--dlh-touch-sm);
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+
+    // Hide original text, show our label via ::after or keep original
+    .fa { display: none; } // Hide FontAwesome icons
+
+    &:hover, &.show {
+      border-color: var(--dlh-acc);
+      color: var(--dlh-acc);
+      border-style: solid;
+    }
+
+    &::after { // Bootstrap caret
+      margin-left: 2px;
+    }
   }
 
-  // Dropdown menu — journal style (reuse filter-bar styles)
+  // Dropdown menu — journal style
   .dropdown-menu {
     background: var(--dlh-paper);
     border: 1px solid var(--dlh-bdr);

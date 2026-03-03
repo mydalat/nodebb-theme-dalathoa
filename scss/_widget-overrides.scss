@@ -70,6 +70,7 @@
 }
 
 // New topic button in filter bar
+// .dlh-btn-write base styles (display controlled by _navbar.scss + _responsive.scss)
 .dlh-btn-write {
   padding: 6px 16px;
   background: var(--dlh-acc);
@@ -79,7 +80,6 @@
   font-family: var(--dlh-hand);
   font-size: 15px;
   font-weight: 600;
-  display: inline-flex;
   align-items: center;
   gap: 6px;
   transition: all 0.15s;

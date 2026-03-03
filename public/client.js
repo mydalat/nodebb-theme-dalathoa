@@ -225,26 +225,9 @@ $(document).ready(function () {
 		localStorage.setItem('dlh-font-size', cls || 'default');
 	};
 
-	// ═══ TAB BAR — Toggle NodeBB filter dropdowns ═══
-	$(document).on('click', '.dlh-tb-b', function (e) {
-		var $btn = $(this);
-		var action = $btn.data('dlh-action');
-
-		$('.dlh-tb-b').removeClass('on');
-		$btn.addClass('on');
-
-		if (action === 'dropdown') {
-			// Find the original NodeBB dropdown-toggle inside the same wrapper
-			var $wrapper = $btn.closest('.dlh-tb-dd');
-			var $toggle = $wrapper.find('.dropdown-toggle').first();
-			if ($toggle.length) {
-				e.stopPropagation();
-				$toggle.dropdown('toggle');
-			}
-		} else if (action === 'reset') {
-			// "Tất cả" — reload current page without filters
-			ajaxify.go('recent');
-		}
+	// ═══ TAB BAR — "Tất cả" resets filters ═══
+	$(document).on('click', '[data-dlh-action="reset"]', function () {
+		ajaxify.go('recent');
 	});
 
 	// ═══ DATE FORMAT — Vietnamese relative + absolute dates ═══
