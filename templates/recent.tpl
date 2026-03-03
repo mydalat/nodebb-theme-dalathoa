@@ -41,22 +41,37 @@
 <div class="dlh-grid2">
 	<!-- Main Column -->
 	<div class="dlh-main">
-		<!-- Tab bar -->
-		<div class="dlh-tb">
-			<button class="dlh-tb-b on" data-filter="recent">
+		<!-- Tab bar with integrated filter dropdowns -->
+		<div class="dlh-tb" component="category/controls">
+			<button class="dlh-tb-b on" data-filter="recent" data-dlh-action="reset">
 				<span class="dlh-i dlh-i-14"><svg viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z"/><path d="M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z"/></svg></span>
 				Tất cả
 			</button>
-			<button class="dlh-tb-b" data-filter="categories">
-				<span class="dlh-i dlh-i-14"><svg viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/></svg></span>
-				Theo chương
-			</button>
-			<button class="dlh-tb-b" data-filter="tags">
-				<span class="dlh-i dlh-i-14"><svg viewBox="0 0 24 24"><path d="M20.59 13.41l-7.17 7.17a2 2 0 01-2.83 0L2 12V2h10l8.59 8.59a2 2 0 010 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg></span>
-				Theo thẻ
-			</button>
+			<!-- Category dropdown — tab triggers the original NodeBB dropdown -->
+			<div class="dlh-tb-dd">
+				<button class="dlh-tb-b" data-filter="categories" data-dlh-action="dropdown">
+					<span class="dlh-i dlh-i-14"><svg viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/></svg></span>
+					Theo chương
+				</button>
+				<!-- IMPORT partials/category/filter-dropdown-left.tpl -->
+			</div>
+			<!-- Tag dropdown — tab triggers the original NodeBB dropdown -->
+			<div class="dlh-tb-dd">
+				<button class="dlh-tb-b" data-filter="tags" data-dlh-action="dropdown">
+					<span class="dlh-i dlh-i-14"><svg viewBox="0 0 24 24"><path d="M20.59 13.41l-7.17 7.17a2 2 0 01-2.83 0L2 12V2h10l8.59 8.59a2 2 0 010 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg></span>
+					Theo thẻ
+				</button>
+				<!-- IMPORT partials/tags/filter-dropdown-left.tpl -->
+			</div>
+
+			<!-- Tools & new topic -->
+			<!-- IMPORT partials/category/tools-dropdown-left.tpl -->
+			<div class="dlh-tb-actions">
+				{{{ if canPost }}}
+				<!-- IMPORT partials/buttons/newTopic.tpl -->
+				{{{ end }}}
+			</div>
 		</div>
-		<!-- IMPORT partials/topic-list-bar.tpl -->
 		<div class="dlh-stitle">
 			<span class="dlh-i dlh-i-20"><svg viewBox="0 0 24 24"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></span>
 			Mới nhất

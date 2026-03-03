@@ -49,6 +49,50 @@
   }
 }
 
+// Tab-dropdown wrapper — hides NodeBB's original trigger, shows our tab button
+.dlh-tb-dd {
+  position: relative;
+
+  // Hide original NodeBB dropdown trigger button
+  > .dropdown > .dropdown-toggle,
+  > .dropdown-left > .dropdown-toggle,
+  > [component="category/dropdown"] > .dropdown-toggle,
+  > [component="tag/filter"] > .dropdown-toggle {
+    display: none !important;
+  }
+
+  // Dropdown menu — journal style (reuse filter-bar styles)
+  .dropdown-menu {
+    background: var(--dlh-paper);
+    border: 1px solid var(--dlh-bdr);
+    border-radius: var(--dlh-r);
+    box-shadow: var(--dlh-sh2);
+    padding: 6px;
+    min-width: 220px;
+
+    .dropdown-item {
+      font-size: 13px;
+      color: var(--dlh-txt);
+      border-radius: 6px;
+      padding: 8px 12px;
+      min-height: var(--dlh-touch-sm);
+      display: flex;
+      align-items: center;
+
+      &:hover, &:active {
+        background: var(--dlh-hl);
+        color: var(--dlh-pri);
+      }
+
+      &.selected, &.active {
+        background: var(--dlh-sec);
+        color: var(--dlh-pri);
+        font-weight: 600;
+      }
+    }
+  }
+}
+
 // Topic list container
 .dlh-tl {
   display: flex;

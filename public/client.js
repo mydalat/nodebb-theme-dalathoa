@@ -225,17 +225,27 @@ $(document).ready(function () {
 		localStorage.setItem('dlh-font-size', cls || 'default');
 	};
 
-	// ═══ TAB BAR — Navigation tabs (home page only) ═══
-	$(document).on('click', '.dlh-tb-b', function () {
+	// ═══ TAB BAR — Toggle NodeBB filter dropdowns ═══
+	$(document).on('click', '.dlh-tb-b', function (e) {
 		var $btn = $(this);
-		var filter = $btn.data('filter');
+		var action = $btn.data('dlh-action');
+
 		$('.dlh-tb-b').removeClass('on');
 		$btn.addClass('on');
 
-		if (filter === 'categories') {
-			ajaxify.go('categories');
-		} else if (filter === 'tags') {
-			ajaxify.go('tags');
+		if (action === 'dropdown') {
+			// Find the original NodeBB dropdown-toggle inside the same wrapper
+			var $wrapper = $btn.closest('.dlh-tb-dd');
+			var $toggle = $wrapper.find('.dropdown-toggle').first();
+			if ($toggle.length) {
+				e.stopPropagation();
+				// Use Bootstrap 5 dropdown API
+				var dd = bootstrap.Dropdown.getOrCreateInstance($toggle[0]);
+				dd.toggle();
+			}
+		} else if (action === 'reset') {
+			// "Tất cả" — reload current page without filters
+			ajaxify.go('recent');
 		}
 	});
 
