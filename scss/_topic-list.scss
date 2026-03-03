@@ -120,16 +120,16 @@
   display: flex;
   align-items: center;
   gap: 4px;
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
 }
 
 .dlh-tr-ht {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  width: 100%;
   display: block;
   min-width: 0;
-  flex: 0 1 auto;
 }
 
 .dlh-tr-m {

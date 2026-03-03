@@ -87,6 +87,20 @@ $(document).ready(function () {
 		window.scrollTo({ top: 0, behavior: 'smooth' });
 	});
 
+	// ═══ AUTO-HIDE NAVBAR on scroll down (mobile only) ═══
+	var navLastScrollTop = 0;
+	var $navbar = $('.dlh-nav');
+	window.addEventListener('scroll', function () {
+		if (window.innerWidth >= 768) { return; }
+		var st = window.scrollY;
+		if (st > navLastScrollTop && st > 56) {
+			$navbar.addClass('dlh-nav-hidden');
+		} else {
+			$navbar.removeClass('dlh-nav-hidden');
+		}
+		navLastScrollTop = st;
+	}, { passive: true });
+
 	// ═══ SWIPE ACTIONS on topic rows (mobile) ═══
 	var swipeThreshold = 60;
 	var swipeStartX = 0;
@@ -226,8 +240,41 @@ $(document).ready(function () {
 		// 'recent' stays on current page (default)
 	});
 
+	// ═══ DATE FORMAT — Vietnamese relative + absolute dates ═══
+	function formatDates() {
+		$('.timeago').each(function () {
+			var $el = $(this);
+			var iso = $el.attr('title');
+			if (!iso) { return; }
+			var date = new Date(iso);
+			if (isNaN(date.getTime())) { return; }
+			var now = new Date();
+			var diffMs = now - date;
+			var diffDays = Math.floor(diffMs / (1000 * 60 * 60 * 24));
+			var text;
+			if (diffMs < 60000) {
+				text = 'vừa xong';
+			} else if (diffMs < 3600000) {
+				var mins = Math.floor(diffMs / 60000);
+				text = mins + ' phút trước';
+			} else if (diffMs < 86400000) {
+				var hrs = Math.floor(diffMs / 3600000);
+				text = hrs + ' giờ trước';
+			} else if (diffDays < 7) {
+				text = diffDays + ' ngày trước';
+			} else {
+				var d = date.getDate();
+				var m = date.getMonth() + 1;
+				var y = date.getFullYear();
+				text = d + ' thg ' + m + ', ' + y;
+			}
+			$el.text(text);
+		});
+	}
+
 	// ═══ TIMEAGO — Vietnamese locale + re-init ═══
 	function initTimeago() {
+		formatDates();
 		if (typeof jQuery !== 'undefined' && jQuery.timeago) {
 			if (!jQuery.timeago.settings._dlhLocaleSet) {
 				jQuery.timeago.settings.strings = {

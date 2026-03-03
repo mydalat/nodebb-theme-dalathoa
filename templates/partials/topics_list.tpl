@@ -26,12 +26,12 @@
 			<div class="dlh-tr-b">
 				<div class="dlh-tr-h">
 					{{{ if ./pinned }}}<span class="dlh-tr-pin" title="[[topic:pinned]]"><span class="dlh-i dlh-i-12"><svg viewBox="0 0 24 24"><path d="M21.44 11.05l-9.19 9.19a6 6 0 01-8.49-8.49l9.19-9.19a4 4 0 015.66 5.66l-9.2 9.19a2 2 0 01-2.83-2.83l8.49-8.48" transform="rotate(45 12 12)"/></svg></span></span>{{{ end }}}
+					{{{ if ./locked }}}<span class="dlh-tr-lock" title="[[topic:locked]]"><span class="dlh-i dlh-i-12"><svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg></span></span>{{{ end }}}
 					<a class="dlh-tr-ht" itemprop="url" href="{config.relative_path}/topic/{./slug}">
 						<span itemprop="name">{./title}</span>
 					</a>
 					<a class="dlh-ct" href="{config.relative_path}/category/{./category.slug}" style="background:{./category.bgColor};color:{./category.color};">{./category.name}</a>
-					{{{ if ./locked }}}<span class="dlh-tr-lock" title="[[topic:locked]]"><span class="dlh-i dlh-i-12"><svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg></span></span>{{{ end }}}
-					{{{ if ./isNew }}}<span class="dlh-tr-new">Mới</span>{{{ end }}}
+					{{{ if ./unread }}}<span class="dlh-tr-new">Mới</span>{{{ end }}}
 					{{{ if ./heat }}}<span class="dlh-tr-hot"><span class="dlh-i dlh-i-14"><svg viewBox="0 0 24 24"><path d="M8.5 14.5A2.5 2.5 0 0011 12c0-1.38-.5-2-1-3-1.07-2.14 0-5.5 3.5-7.5C17 1.5 19.5 4.02 19.5 7c0 3.5-3 7-5.5 8a2.5 2.5 0 00-2.5 2.5v2.5"/></svg></span>Hot</span>{{{ end }}}
 				</div>
 				<div class="dlh-tr-m">
