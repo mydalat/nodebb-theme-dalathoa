@@ -16,9 +16,6 @@
   // Hero larger on tablet
   .dlh-j-cover { padding: 40px 20px; }
 
-  .dlh-cat-grid { grid-template-columns: 1fr 1fr; }
-  .dlh-cat-c { flex-direction: column; align-items: stretch; padding: 20px; }
-
   // Entry header — paper lines + left margin
   .dlh-entry-head {
     padding: 24px 24px 24px 52px;
@@ -188,15 +185,8 @@
 
   .dlh-btt { bottom: 32px; right: 32px; }
 
-  .dlh-cat-c:hover {
-    transform: rotate(-1deg) translateY(-4px);
-    box-shadow: var(--dlh-sh2);
-  }
-
   .dlh-prof-stats-grid { grid-template-columns: repeat(4, 1fr); }
 }
 
 // ── WIDE ≥1024px ───────────────────────
-@media (min-width: 1024px) {
-  .dlh-cat-grid { grid-template-columns: 1fr 1fr 1fr; }
-}
+// Category grid 3-col moved to _categories.scss
