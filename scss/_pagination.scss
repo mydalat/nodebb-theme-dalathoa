@@ -1,5 +1,5 @@
 // ══════════════════════════════════════
-// PAGINATION & SKELETON — Hand-drawn pagination, shimmer loading
+// PAGINATION & SKELETON — Journal-style pagination, shimmer loading
 // ══════════════════════════════════════
 
 // Pagination container
@@ -12,10 +12,10 @@
   margin-top: 8px;
 }
 
-// Hand-drawn style pagination button with Caveat font
+// Pagination button — dashed border inactive, solid active
 .dlh-pg-btn {
-  min-width: var(--dlh-touch-sm);
-  height: var(--dlh-touch-sm);
+  min-width: 36px;
+  height: 36px;
   border: 1px dashed var(--dlh-bdr);
   background: var(--dlh-paper);
   border-radius: 6px;
@@ -30,9 +30,23 @@
   padding: 0 10px;
   transition: transform 0.12s;
 
-  &:active { transform: scale(0.9); background: var(--dlh-hl); }
-  &.on { background: var(--dlh-sec); border-color: var(--dlh-sec); color: var(--dlh-pri); border-style: solid; }
-  &.disabled { opacity: 0.3; cursor: default; }
+  &:active {
+    transform: scale(0.9);
+    background: var(--dlh-hl);
+  }
+
+  &.on {
+    background: var(--dlh-sec);
+    border-color: var(--dlh-sec);
+    border-style: solid;
+    color: var(--dlh-pri);
+  }
+
+  &.disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+    pointer-events: none;
+  }
 }
 
 .dlh-pg-dots {
