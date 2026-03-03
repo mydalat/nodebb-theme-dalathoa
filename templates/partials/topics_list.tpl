@@ -48,6 +48,10 @@
 					<a class="dlh-ct" href="{config.relative_path}/category/{./category.slug}" style="background:{./category.bgColor};color:{./category.color};">{./category.name}</a>
 					<span class="dlh-mt">{./user.displayname}</span>
 					<span class="dlh-mt"><time datetime="{./timestampISO}" class="timeago" title="{./timestampISO}"></time></span>
+				<span class="dlh-mt dlh-mt-sep">·</span>
+				<span class="dlh-mt">{./postcount} trả lời</span>
+				<span class="dlh-mt dlh-mt-sep">·</span>
+				<span class="dlh-mt">{./viewcount} đọc</span>
 				</div>
 				{{{ if ./tags.length }}}
 				<div class="dlh-tr-tags">

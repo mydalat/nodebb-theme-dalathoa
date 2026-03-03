@@ -226,12 +226,20 @@ $(document).ready(function () {
 		// 'recent' stays on current page (default)
 	});
 
+	// ═══ TIMEAGO — Re-initialize on page changes ═══
+	function initTimeago() {
+		if (typeof jQuery !== 'undefined' && jQuery.timeago) {
+			jQuery('time.timeago').timeago();
+		}
+	}
+
 	// ═══ INIT + PAGE CHANGE ═══
 	$(window).on('action:ajaxify.end', function () {
 		updateBottomNav();
 		updateDesktopNav();
 		updateStats();
 		initFontSize();
+		initTimeago();
 	});
 
 	// Initial state
@@ -240,4 +248,5 @@ $(document).ready(function () {
 	updateStats();
 	updateGarland();
 	initFontSize();
+	initTimeago();
 });

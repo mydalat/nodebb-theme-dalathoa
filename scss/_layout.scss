@@ -105,3 +105,14 @@
 .dlh-cat-c:nth-child(n+2) { animation-delay: 0.05s; }
 .dlh-cat-c:nth-child(n+3) { animation-delay: 0.1s; }
 .dlh-cat-c:nth-child(n+4) { animation-delay: 0.15s; }
+
+// Mobile layout overrides
+@media (max-width: 767px) {
+  .dlh-wrap {
+    padding: 12px 8px 32px;
+  }
+
+  .dlh-tl {
+    width: 100%;
+  }
+}

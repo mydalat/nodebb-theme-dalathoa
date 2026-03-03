@@ -120,7 +120,7 @@
   display: flex;
   align-items: center;
   gap: 6px;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
 }
 
 .dlh-tr-ht {
@@ -129,7 +129,7 @@
   white-space: nowrap;
   display: block;
   min-width: 0;
-  width: 100%;
+  flex: 1;
   max-width: 100%;
 }
 
@@ -153,7 +153,18 @@
 
 .dlh-tr-r { display: none; }
 
-// Last reply preview
+// Teaser / last reply preview line (inside body column)
+.dlh-tr-preview {
+  font-size: var(--dlh-fs-xs);
+  color: var(--dlh-txt3);
+  margin-top: 4px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  &::before { content: "⚡ "; }
+}
+
+// Reply count / view count icon column (tablet+)
 .dlh-tr-lt {
   font-size: var(--dlh-fs-xs);
   color: var(--dlh-txt3);
@@ -161,9 +172,20 @@
   .hi { color: var(--dlh-acc); font-weight: 600; }
 }
 
+// Meta separator dot
+.dlh-mt-sep {
+  color: var(--dlh-bdr);
+  flex-shrink: 0;
+}
+
 // Row indicators
-.dlh-tr-pin { color: var(--dlh-sec); display: flex; align-items: center; }
-.dlh-tr-lock { color: var(--dlh-txt3); display: flex; align-items: center; }
+.dlh-tr-pin { color: var(--dlh-sec); display: flex; align-items: center; flex-shrink: 0; }
+.dlh-tr-lock { color: var(--dlh-txt3); display: flex; align-items: center; flex-shrink: 0; }
+
+// Category badge in topic row header — must not shrink
+.dlh-tr-h .dlh-ct { flex-shrink: 0; }
+// Category badge in topic row meta — must not shrink
+.dlh-tr-m .dlh-ct { flex-shrink: 0; }
 
 // NEW badge
 .dlh-tr-new {
