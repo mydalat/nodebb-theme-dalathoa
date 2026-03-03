@@ -147,12 +147,12 @@
 .dlh-online-user {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 10px;
 }
 
 .dlh-online-av {
-  width: 28px;
-  height: 28px;
+  width: 32px;
+  height: 32px;
   border-radius: 50%;
   background: var(--dlh-sec);
   color: var(--dlh-pri);
@@ -160,9 +160,24 @@
   align-items: center;
   justify-content: center;
   font-family: var(--dlh-hand);
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 800;
 }
 
-.dlh-online-name { font-size: 13px; font-weight: 600; }
-.dlh-online-status { font-size: var(--dlh-fs-xs); color: var(--dlh-txt3); }
+.dlh-online-name { font-size: 14px; font-weight: 600; color: var(--dlh-ink); }
+.dlh-online-status { font-size: var(--dlh-fs-sm); color: var(--dlh-ok); }
+
+// Pulsing live dot for widget title
+.dlh-live-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--dlh-ok);
+  display: inline-block;
+  animation: dlhPulse 1.5s ease-in-out infinite;
+}
+
+@keyframes dlhPulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
