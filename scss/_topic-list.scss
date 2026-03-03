@@ -10,7 +10,10 @@
   padding: 14px 0;
   border-bottom: 1px dashed var(--dlh-bdr);
   margin-bottom: 16px;
-  flex-wrap: wrap;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  &::-webkit-scrollbar { display: none; }
 }
 
 .dlh-tb-b {
@@ -85,14 +88,17 @@
     }
   }
 
-  // Dropdown menu — journal style
+  // Dropdown menu — journal style, position:fixed to escape overflow clip
   .dropdown-menu {
+    position: fixed !important;
     background: var(--dlh-paper);
     border: 1px solid var(--dlh-bdr);
     border-radius: var(--dlh-r);
     box-shadow: var(--dlh-sh2);
     padding: 6px;
     min-width: 220px;
+    max-height: 60vh;
+    overflow-y: auto;
 
     .dropdown-item {
       font-size: 13px;
