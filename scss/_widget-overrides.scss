@@ -16,41 +16,49 @@
   color: var(--dlh-pri);
   margin-bottom: 16px;
 
-  // User grid — stack vertically, remove Bootstrap grid
+  // User grid — horizontal wrap, compact layout for many users
   .row {
     display: flex;
-    flex-direction: column;
-    gap: 8px;
+    flex-wrap: wrap;
+    gap: 6px;
     margin: 10px 0 0;
   }
 
-  // Each user link
+  // Each user link — compact inline chip
   .btn.btn-ghost {
-    padding: 6px 8px;
+    flex: 0 0 auto;
+    width: calc(50% - 3px); // 2 columns in sidebar
+    padding: 4px 6px;
     border-radius: var(--dlh-r);
     font-family: var(--dlh-sans);
     transition: background 0.12s;
+    gap: 6px;
 
     &:hover, &:active {
       background: rgba(253, 189, 51, 0.12);
     }
 
-    // Avatar size override
+    // Avatar — small for compact layout
     .avatar {
-      --avatar-size: 32px !important;
+      --avatar-size: 28px !important;
     }
 
     // User name
     .fw-semibold {
-      font-size: 14px;
+      font-size: 13px;
       font-weight: 600;
       color: var(--dlh-ink);
     }
 
-    // Status/time
+    // Status/time — hide to save space, show on hover
     .text-xs.text-muted {
-      font-size: var(--dlh-fs-sm);
+      font-size: var(--dlh-fs-xs);
       color: var(--dlh-ok);
+      display: none;
+    }
+
+    &:hover .text-xs.text-muted {
+      display: block;
     }
   }
 }
