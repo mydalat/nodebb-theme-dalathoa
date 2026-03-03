@@ -228,8 +228,32 @@ $(document).ready(function () {
 
 	// ═══ TIMEAGO — Re-initialize on page changes ═══
 	function initTimeago() {
+		// NodeBB uses jQuery.timeago — re-trigger on dynamically loaded content
 		if (typeof jQuery !== 'undefined' && jQuery.timeago) {
-			jQuery('time.timeago').timeago();
+			// Set Vietnamese locale if not already set
+			if (jQuery.timeago.settings && !jQuery.timeago.settings._dlhLocaleSet) {
+				jQuery.timeago.settings.strings = {
+					prefixAgo: null,
+					prefixFromNow: null,
+					suffixAgo: 'trước',
+					suffixFromNow: 'từ bây giờ',
+					seconds: 'vừa xong',
+					minute: '1 phút',
+					minutes: '%d phút',
+					hour: '1 giờ',
+					hours: '%d giờ',
+					day: '1 ngày',
+					days: '%d ngày',
+					month: '1 tháng',
+					months: '%d tháng',
+					year: '1 năm',
+					years: '%d năm',
+					wordSeparator: ' ',
+					numbers: [],
+				};
+				jQuery.timeago.settings._dlhLocaleSet = true;
+			}
+			jQuery('.timeago').timeago();
 		}
 	}
 

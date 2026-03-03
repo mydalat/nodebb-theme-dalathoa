@@ -136,13 +136,12 @@
 .dlh-tr-m {
   font-size: var(--dlh-fs-sm);
   color: var(--dlh-txt3);
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  flex-wrap: wrap;
   margin-top: 2px;
   overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
   max-width: 100%;
+  b { font-family: var(--dlh-hand); font-weight: 700; color: var(--dlh-txt); font-size: 15px; }
 }
 
 .dlh-tr-reads {
@@ -172,11 +171,7 @@
   .hi { color: var(--dlh-acc); font-weight: 600; }
 }
 
-// Meta separator dot
-.dlh-mt-sep {
-  color: var(--dlh-bdr);
-  flex-shrink: 0;
-}
+// Inline meta text inherits color from .dlh-tr-m
 
 // Row indicators
 .dlh-tr-pin { color: var(--dlh-sec); display: flex; align-items: center; flex-shrink: 0; }
@@ -184,8 +179,6 @@
 
 // Category badge in topic row header — must not shrink
 .dlh-tr-h .dlh-ct { flex-shrink: 0; }
-// Category badge in topic row meta — must not shrink
-.dlh-tr-m .dlh-ct { flex-shrink: 0; }
 
 // NEW badge
 .dlh-tr-new {
