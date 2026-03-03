@@ -2,15 +2,121 @@
 // WIDGET & NODEBB OVERRIDES — Restyle defaults to journal theme
 // ══════════════════════════════════════
 
-// Hide default filter bar — replaced by .dlh-tb tab bar
-// Keep in DOM so JS dropdowns still work
-[component="category/controls"] {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
+// Filter bar — journal-style wrapper for NodeBB dropdowns
+.dlh-filter-bar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+
+  // Restyle Bootstrap dropdown buttons inside filter bar
+  .dropdown-toggle,
+  .btn-ghost {
+    padding: 8px 14px;
+    font-size: 13px;
+    font-weight: 500;
+    border: 1px dashed var(--dlh-bdr);
+    background: var(--dlh-paper);
+    color: var(--dlh-txt3);
+    font-family: var(--dlh-sans);
+    border-radius: 6px;
+    transition: all 0.15s;
+    min-height: var(--dlh-touch-sm);
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    white-space: nowrap;
+
+    &:hover, &:focus, &.show {
+      border-style: solid;
+      border-color: var(--dlh-acc);
+      color: var(--dlh-acc);
+    }
+
+    // Hide FontAwesome icons, use cleaner look
+    .fa { font-size: 12px; }
+  }
+
+  // Dropdown menus — journal card style
+  .dropdown-menu {
+    background: var(--dlh-paper);
+    border: 1px solid var(--dlh-bdr);
+    border-radius: var(--dlh-r);
+    box-shadow: var(--dlh-sh2);
+    padding: 6px;
+
+    .dropdown-item {
+      font-size: 13px;
+      color: var(--dlh-txt);
+      border-radius: 6px;
+      padding: 8px 12px;
+      min-height: var(--dlh-touch-sm);
+      display: flex;
+      align-items: center;
+
+      &:hover, &:active {
+        background: var(--dlh-hl);
+        color: var(--dlh-pri);
+      }
+
+      &.selected, &.active {
+        background: var(--dlh-sec);
+        color: var(--dlh-pri);
+        font-weight: 600;
+      }
+    }
+  }
+}
+
+// New topic button in filter bar
+.dlh-btn-write {
+  padding: 6px 16px;
+  background: var(--dlh-acc);
+  border: none;
+  border-radius: 20px;
+  color: #fff;
+  font-family: var(--dlh-hand);
+  font-size: 15px;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.15s;
   white-space: nowrap;
+  min-height: var(--dlh-touch-sm);
+
+  &:hover { background: #d55a24; color: #fff; }
+  &:active { transform: scale(0.94); }
+}
+
+// New topics alert
+.dlh-new-alert {
+  padding: 4px 12px;
+  background: var(--dlh-sec);
+  border: none;
+  border-radius: 14px;
+  color: var(--dlh-pri);
+  font-size: 12px;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-top: 4px;
+  z-index: 10;
+
+  &.hide { display: none; }
+}
+
+.dlh-tb-actions {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 6px;
 }
 
 // Online users widget — "Đang online" card

@@ -225,25 +225,17 @@ $(document).ready(function () {
 		localStorage.setItem('dlh-font-size', cls || 'default');
 	};
 
-	// ═══ TAB BAR — Trigger hidden filter bar dropdowns ═══
+	// ═══ TAB BAR — Navigation tabs (home page only) ═══
 	$(document).on('click', '.dlh-tb-b', function () {
 		var $btn = $(this);
 		var filter = $btn.data('filter');
 		$('.dlh-tb-b').removeClass('on');
 		$btn.addClass('on');
 
-		// Trigger corresponding dropdown in hidden filter bar
-		var $controls = $('[component="category/controls"]');
 		if (filter === 'categories') {
-			$controls.find('[component="category/dropdown"] .dropdown-toggle, [data-filter="category"] .dropdown-toggle').first().dropdown('toggle');
+			ajaxify.go('categories');
 		} else if (filter === 'tags') {
-			$controls.find('[component="tag/filter"] .dropdown-toggle, [data-filter="tag"] .dropdown-toggle').first().dropdown('toggle');
-		}
-		// 'recent' = reset filters, reload current page
-		if (filter === 'recent') {
-			var url = ajaxify.data.url || '';
-			var base = url.split('?')[0];
-			ajaxify.go(base);
+			ajaxify.go('tags');
 		}
 	});
 
