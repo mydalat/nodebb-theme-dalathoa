@@ -48,17 +48,14 @@ $(document).ready(function () {
 
 	// ═══ FAB — Open composer ═══
 	$(document).on('click', '[component="dlh/fab"]', function () {
-		// Trigger NodeBB's new topic composer
-		var cid = ajaxify.data.cid || 0;
-		if (cid) {
-			require(['composer'], function (composer) {
-				composer.newTopic({ cid: cid });
-			});
-		} else {
-			require(['composer'], function (composer) {
-				composer.newTopic({});
-			});
+		if (!config.loggedIn) {
+			ajaxify.go('login');
+			return;
 		}
+		var cid = ajaxify.data.cid || 0;
+		require(['composer'], function (composer) {
+			composer.newTopic(cid ? { cid: cid } : {});
+		});
 	});
 
 	// ═══ BACK TO TOP ═══

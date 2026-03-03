@@ -37,11 +37,9 @@
 	</nav>
 
 	<!-- ═══ FAB (Mobile) ═══ -->
-	{{{ if config.loggedIn }}}
 	<button class="dlh-fab" component="dlh/fab" title="Viết mới">
 		<span class="dlh-i dlh-i-22"><svg viewBox="0 0 24 24"><path d="M17 3a2.83 2.83 0 114 4L7.5 20.5 2 22l1.5-5.5z"/></svg></span>
 	</button>
-	{{{ end }}}
 
 	<!-- ═══ BACK TO TOP ═══ -->
 	<button class="dlh-btt" id="dlh-btt" title="Lên đầu trang">

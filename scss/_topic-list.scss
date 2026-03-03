@@ -68,8 +68,9 @@
     align-items: center;
     gap: 6px;
 
-    // Hide original text, show our label via ::after or keep original
     .fa { display: none; } // Hide FontAwesome icons
+    // Force show label text on mobile (NodeBB uses d-none d-md-inline)
+    .d-none { display: inline !important; }
 
     &:hover, &.show {
       border-color: var(--dlh-acc);
