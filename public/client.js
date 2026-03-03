@@ -226,35 +226,39 @@ $(document).ready(function () {
 		// 'recent' stays on current page (default)
 	});
 
-	// ═══ TIMEAGO — Re-initialize on page changes ═══
+	// ═══ TIMEAGO — Vietnamese locale + re-init ═══
 	function initTimeago() {
-		// NodeBB uses jQuery.timeago — re-trigger on dynamically loaded content
 		if (typeof jQuery !== 'undefined' && jQuery.timeago) {
-			// Set Vietnamese locale if not already set
-			if (jQuery.timeago.settings && !jQuery.timeago.settings._dlhLocaleSet) {
+			if (!jQuery.timeago.settings._dlhLocaleSet) {
 				jQuery.timeago.settings.strings = {
-					prefixAgo: null,
-					prefixFromNow: null,
-					suffixAgo: 'trước',
-					suffixFromNow: 'từ bây giờ',
-					seconds: 'vừa xong',
-					minute: '1 phút',
-					minutes: '%d phút',
-					hour: '1 giờ',
-					hours: '%d giờ',
-					day: '1 ngày',
-					days: '%d ngày',
-					month: '1 tháng',
-					months: '%d tháng',
-					year: '1 năm',
-					years: '%d năm',
-					wordSeparator: ' ',
-					numbers: [],
+					prefixAgo: null, prefixFromNow: null,
+					suffixAgo: 'trước', suffixFromNow: 'từ bây giờ',
+					seconds: 'vừa xong', minute: '1 phút', minutes: '%d phút',
+					hour: '1 giờ', hours: '%d giờ',
+					day: '1 ngày', days: '%d ngày',
+					month: '1 tháng', months: '%d tháng',
+					year: '1 năm', years: '%d năm',
+					wordSeparator: ' ', numbers: [],
 				};
+				jQuery.timeago.settings.cutoff = 0; // Always show relative time
 				jQuery.timeago.settings._dlhLocaleSet = true;
 			}
 			jQuery('.timeago').timeago();
 		}
+	}
+
+	// ═══ COMPACT NUMBERS — Format 1500 → 1.5K ═══
+	function formatCompactNumbers() {
+		$('.dlh-tr-m b').each(function () {
+			var $el = $(this);
+			var num = parseInt($el.text(), 10);
+			if (!isNaN(num) && num >= 1000) {
+				var compact = num >= 1000000
+					? (num / 1000000).toFixed(1).replace(/\.0$/, '') + 'M'
+					: (num / 1000).toFixed(1).replace(/\.0$/, '') + 'K';
+				$el.text(compact);
+			}
+		});
 	}
 
 	// ═══ INIT + PAGE CHANGE ═══
@@ -264,6 +268,7 @@ $(document).ready(function () {
 		updateStats();
 		initFontSize();
 		initTimeago();
+		formatCompactNumbers();
 	});
 
 	// Initial state
@@ -273,4 +278,5 @@ $(document).ready(function () {
 	updateGarland();
 	initFontSize();
 	initTimeago();
+	formatCompactNumbers();
 });
