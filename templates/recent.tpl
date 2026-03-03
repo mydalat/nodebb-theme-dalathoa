@@ -8,7 +8,7 @@
 <!-- ═══ COVER HERO ═══ -->
 <section class="dlh-j-cover">
 	<div class="dlh-j-cover-inner">
-		<div class="dlh-j-cover-stamp">✦ EST. 2023 ✦</div>
+		<div class="dlh-j-cover-stamp">✦ EST. 2006 ✦</div>
 		<h1>Nhật ký<br><em>Đà Lạt</em></h1>
 		<p>Mỗi câu chuyện là một trang nhật ký — nơi người Đà Lạt kể về thành phố sương mù qua ảnh xưa, vườn yên, và những đổi thay.</p>
 		<div class="dlh-j-stats">
