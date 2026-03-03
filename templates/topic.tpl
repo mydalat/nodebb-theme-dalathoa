@@ -129,6 +129,29 @@
 	</div>
 </div>
 
+<!-- ═══ SHARE MODAL ═══ -->
+<div class="dlh-share-overlay" id="dlh-share-overlay"></div>
+<div class="dlh-share-modal" id="dlh-share-modal">
+	<div class="dlh-share-handle"></div>
+	<div class="dlh-share-title"><span class="dlh-i dlh-i-20"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg></span> Chia sẻ</div>
+	<div class="dlh-share-grid"></div>
+	<div class="dlh-share-link">
+		<span class="dlh-share-link-url"></span>
+		<button class="dlh-share-link-copy">Sao chép</button>
+	</div>
+</div>
+
+<!-- ═══ USER CARD POPUP ═══ -->
+<div class="dlh-usercard" id="dlh-usercard">
+	<div class="dlh-usercard-top"></div>
+	<div class="dlh-usercard-bio"></div>
+	<div class="dlh-usercard-stats"></div>
+	<div class="dlh-usercard-actions">
+		<a class="dlh-usercard-btn dlh-usercard-btn-pri" href="#"><span class="dlh-i dlh-i-14"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg></span> Nhắn tin</a>
+		<a class="dlh-usercard-btn dlh-usercard-btn-view" href="#"><span class="dlh-i dlh-i-14"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></span> Xem</a>
+	</div>
+</div>
+
 {{{ if config.usePagination }}}
 <!-- IMPORT partials/paginator.tpl -->
 {{{ end }}}

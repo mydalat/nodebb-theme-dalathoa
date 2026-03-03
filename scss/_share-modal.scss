@@ -1,0 +1,154 @@
+// ══════════════════════════════════════
+// Đà Lạt Hoa — Share Modal (bottom sheet)
+// ══════════════════════════════════════
+
+.dlh-share-overlay {
+	position: fixed;
+	inset: 0;
+	z-index: 440;
+	background: rgba(0, 0, 0, 0.45);
+	opacity: 0;
+	pointer-events: none;
+	transition: opacity 0.22s ease;
+
+	&.dlh-share-overlay-visible {
+		opacity: 1;
+		pointer-events: auto;
+	}
+}
+
+.dlh-share-modal {
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	z-index: 441;
+	background: var(--dlh-paper);
+	border-top-left-radius: var(--dlh-rl);
+	border-top-right-radius: var(--dlh-rl);
+	box-shadow: var(--dlh-sh3);
+	padding: 0 0 env(safe-area-inset-bottom, 16px);
+	transform: translateY(100%);
+	transition: transform 0.28s cubic-bezier(0.32, 0.72, 0, 1);
+
+	@media (min-width: 640px) {
+		max-width: 420px;
+		left: 50%;
+		right: auto;
+		transform: translateX(-50%) translateY(100%);
+		border-radius: var(--dlh-rl) var(--dlh-rl) 0 0;
+	}
+
+	&.dlh-share-modal-visible {
+		transform: translateY(0);
+
+		@media (min-width: 640px) {
+			transform: translateX(-50%) translateY(0);
+		}
+	}
+
+	// Drag handle
+	.dlh-share-handle {
+		width: 40px;
+		height: 4px;
+		background: var(--dlh-bdr);
+		border-radius: 2px;
+		margin: 10px auto 0;
+	}
+
+	// Title row
+	.dlh-share-title {
+		display: flex;
+		align-items: center;
+		gap: 6px;
+		padding: 12px 20px 8px;
+		font-family: var(--dlh-hand);
+		font-size: 1rem;
+		font-weight: 600;
+		color: var(--dlh-txt);
+		border-bottom: 1px dashed var(--dlh-bdr);
+	}
+
+	// Share buttons grid
+	.dlh-share-grid {
+		display: flex;
+		justify-content: space-around;
+		padding: 16px 20px;
+		gap: 8px;
+	}
+
+	.dlh-share-btn {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 6px;
+		padding: 10px 8px;
+		border-radius: var(--dlh-r);
+		border: none;
+		background: transparent;
+		cursor: pointer;
+		color: var(--dlh-txt2);
+		font-size: 0.72rem;
+		font-weight: 500;
+		flex: 1;
+		transition: background 0.15s;
+
+		&:hover { background: rgba(0, 0, 0, 0.05); }
+
+		.dlh-share-btn-icon {
+			width: 44px;
+			height: 44px;
+			border-radius: 50%;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+
+			svg {
+				width: 22px;
+				height: 22px;
+				fill: #fff;
+			}
+		}
+
+		&[data-share="facebook"] .dlh-share-btn-icon { background: #1877f2; }
+		&[data-share="zalo"]     .dlh-share-btn-icon { background: #0068ff; }
+		&[data-share="messenger"] .dlh-share-btn-icon { background: #0084ff; }
+		&[data-share="twitter"]  .dlh-share-btn-icon { background: #000; }
+	}
+
+	// URL copy row
+	.dlh-share-link {
+		display: flex;
+		align-items: center;
+		gap: 8px;
+		margin: 0 16px 16px;
+		padding: 8px 12px;
+		background: var(--dlh-bg, #f4f2e5);
+		border: 1px solid var(--dlh-bdr);
+		border-radius: var(--dlh-r);
+
+		.dlh-share-link-url {
+			flex: 1;
+			font-size: 0.75rem;
+			color: var(--dlh-txt2);
+			overflow: hidden;
+			text-overflow: ellipsis;
+			white-space: nowrap;
+		}
+
+		.dlh-share-link-copy {
+			flex-shrink: 0;
+			padding: 4px 10px;
+			background: var(--dlh-pri);
+			color: #fff;
+			border: none;
+			border-radius: var(--dlh-r);
+			font-size: 0.72rem;
+			font-weight: 600;
+			cursor: pointer;
+			transition: opacity 0.15s;
+
+			&:hover { opacity: 0.85; }
+		}
+	}
+}

@@ -12,6 +12,8 @@
 	],
 	"scripts": [
 		"public/client.js",
+		"public/usercard-popup.js",
+		"public/share-modal.js",
 		"../nodebb-theme-harmony/public/harmony.js"
 	],
 	"templates": "templates",

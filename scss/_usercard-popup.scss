@@ -1,0 +1,138 @@
+// ══════════════════════════════════════
+// Đà Lạt Hoa — User Card Popup
+// ══════════════════════════════════════
+
+.dlh-usercard {
+	position: fixed;
+	z-index: 450;
+	width: 260px;
+	background: var(--dlh-paper);
+	border: 1px solid var(--dlh-bdr);
+	border-radius: var(--dlh-rl);
+	box-shadow: var(--dlh-sh3);
+	overflow: hidden;
+	opacity: 0;
+	pointer-events: none;
+	transform: translateY(6px) scale(0.97);
+	transition: opacity 0.18s ease, transform 0.18s ease;
+
+	&.dlh-usercard-visible {
+		opacity: 1;
+		pointer-events: auto;
+		transform: translateY(0) scale(1);
+	}
+
+	// Cover / avatar row
+	.dlh-usercard-top {
+		display: flex;
+		align-items: flex-end;
+		gap: 10px;
+		padding: 12px 14px 10px;
+		border-bottom: 1px dashed var(--dlh-bdr);
+
+		.dlh-usercard-avatar {
+			width: 48px;
+			height: 48px;
+			border-radius: 50%;
+			border: 2px solid var(--dlh-pri);
+			object-fit: cover;
+			flex-shrink: 0;
+		}
+
+		.dlh-usercard-info {
+			flex: 1;
+			min-width: 0;
+		}
+
+		.dlh-usercard-name {
+			font-family: var(--dlh-hand);
+			font-weight: 600;
+			font-size: 0.95rem;
+			color: var(--dlh-txt);
+			white-space: nowrap;
+			overflow: hidden;
+			text-overflow: ellipsis;
+		}
+
+		.dlh-usercard-role {
+			font-size: 0.72rem;
+			color: var(--dlh-txt3);
+			margin-top: 1px;
+		}
+	}
+
+	// Bio
+	.dlh-usercard-bio {
+		padding: 8px 14px;
+		font-size: 0.78rem;
+		color: var(--dlh-txt2);
+		font-style: italic;
+		min-height: 28px;
+		border-bottom: 1px dashed var(--dlh-bdr);
+		line-height: 1.45;
+
+		&:empty {
+			display: none;
+		}
+	}
+
+	// Stats row
+	.dlh-usercard-stats {
+		display: flex;
+		gap: 0;
+		padding: 8px 14px;
+		border-bottom: 1px dashed var(--dlh-bdr);
+
+		.dlh-usercard-stat {
+			flex: 1;
+			text-align: center;
+
+			.dlh-usercard-stat-val {
+				display: block;
+				font-weight: 700;
+				font-size: 0.88rem;
+				color: var(--dlh-pri);
+			}
+
+			.dlh-usercard-stat-lbl {
+				display: block;
+				font-size: 0.66rem;
+				color: var(--dlh-txt3);
+				text-transform: uppercase;
+				letter-spacing: 0.04em;
+			}
+		}
+	}
+
+	// Action buttons
+	.dlh-usercard-actions {
+		display: flex;
+		gap: 8px;
+		padding: 10px 14px;
+	}
+
+	.dlh-usercard-btn {
+		display: inline-flex;
+		align-items: center;
+		gap: 4px;
+		padding: 5px 10px;
+		border-radius: var(--dlh-r);
+		font-size: 0.75rem;
+		font-weight: 500;
+		text-decoration: none;
+		transition: opacity 0.15s;
+
+		&:hover { opacity: 0.82; }
+
+		&.dlh-usercard-btn-pri {
+			background: var(--dlh-pri);
+			color: #fff;
+		}
+
+		&.dlh-usercard-btn-view {
+			background: transparent;
+			border: 1px solid var(--dlh-bdr);
+			color: var(--dlh-txt2);
+		}
+	}
+}
