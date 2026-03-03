@@ -27,7 +27,7 @@ nodebb-theme-harmony (base theme)
 ### Design System
 - **CSS prefix**: All custom classes use `dlh-` (dalathoa) prefix
 - **CSS variables**: `--dlh-pri`, `--dlh-sec`, `--dlh-acc`, `--dlh-bg`, `--dlh-paper`, etc.
-- **Fonts**: Caveat (handwriting/headings), Be Vietnam Pro (body), Georgia (quotes)
+- **Fonts**: Playfair Display (handwriting/headings), Be Vietnam Pro (body), Georgia (quotes)
 - **Palette**: olive green `#313911`, golden `#fdbd33`, orange accent `#e7672e`, cream bg `#f4f2e5`
 - **Icon system**: Lucide SVG inline via `.dlh-i` classes
 
@@ -60,22 +60,28 @@ nodebb-theme-harmony (base theme)
 - **Rename**: quickstart → dalathoa (all config files, routes, templates)
 - **Design system**: CSS variables, Bootstrap overrides, Google Fonts, Lucide icons
 - **Global SCSS**: navbar, bottom nav, FAB, back-to-top, journal cards, tag pills, stamps, topic rows, tab bar, pagination, overlay, toast, skeleton loading — all responsive
+- **Pagination**: `partials/paginator.tpl` + `_pagination.scss` — journal-style with dashed borders, active yellow
+- **Online users widget**: `_widget-overrides.scss` — restyled default NodeBB widget, 2-col compact layout, pulse dot
+- **Filter bar → Tab bar**: 3 tabs (Tất cả / Theo chương / Theo thẻ) integrated in `recent.tpl`, each tab toggles original NodeBB category/tag dropdown via jQuery `.dropdown('toggle')`. Login button removed (redundant with FAB/navbar).
+- **Client JS**: bottom nav, desktop nav, FAB composer, back-to-top, auto-hide navbar, swipe actions, pull-to-refresh, stats, garland, font size toggle, tab bar dropdown toggle, Vietnamese date format, timeago locale, compact numbers
 
 ### In Progress
-- Template overrides (header, home, topic, categories, profile)
-- Client JS (bottom nav, FAB, pull-to-refresh, swipe, back-to-top)
+- Template overrides (category, topic detail, profile)
 
 ### TODO
-- Override Harmony templates to match Travel Journal mockup
-- Mobile interactions (pull-to-refresh, swipe actions)
 - Dark mode custom styles
-- Font size toggle persistence
+- Additional template overrides to match Travel Journal mockup
 
 ## Customization Strategy
 - **Override templates**: Place `.tpl` files in `templates/` matching Harmony filenames
 - **Override styles**: All custom SCSS appended after Harmony import in `theme.scss`
 - **Client JS**: Add behavior in `public/client.js` via `$(window).on('action:ajaxify.end', ...)`
 - **New routes**: Register in `lib/theme.js` init function, handle in `lib/controllers.js`
+
+### Important Patterns
+- **Bootstrap in NodeBB**: No global `bootstrap` object. Use jQuery plugin API: `$el.dropdown('toggle')`, NOT `bootstrap.Dropdown.getOrCreateInstance()`
+- **Filter dropdowns**: NodeBB core `filter-dropdown-left.tpl` contains both trigger button + dropdown menu. To replace trigger with custom button, hide original via CSS and use JS to toggle.
+- **Tab bar + dropdown integration**: `.dlh-tb-dd` wrapper contains our tab button + NodeBB's dropdown partial. Tab click finds `.dropdown-toggle` inside wrapper and calls `.dropdown('toggle')`.
 
 ## Commands
 - No build step required — NodeBB compiles SCSS at runtime
