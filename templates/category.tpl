@@ -24,13 +24,12 @@
 	</div>
 </div>
 
-{{{ if widgets.header.length }}}
+<!-- Widget: Header -->
 <div data-widget-area="header">
 	{{{ each widgets.header }}}
 	{{widgets.header.html}}
 	{{{ end }}}
 </div>
-{{{ end }}}
 
 <!-- ═══ SUBCATEGORIES (Bookmarks) ═══ -->
 {{{ if ./children.length }}}
@@ -81,10 +80,9 @@
 	</div>
 </div>
 
-{{{ if widgets.footer.length }}}
+<!-- Widget: Footer -->
 <div data-widget-area="footer">
 	{{{ each widgets.footer }}}
 	{{widgets.footer.html}}
 	{{{ end }}}
 </div>
-{{{ end }}}
