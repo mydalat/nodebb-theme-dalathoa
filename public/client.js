@@ -227,6 +227,34 @@ $(document).ready(function () {
 		ajaxify.go('recent');
 	});
 
+	// ═══ TAB BAR — Relabel filter buttons ═══
+	function relabelFilters() {
+		var labels = {
+			'all-categories': 'Theo chương',
+			'all-tags': 'Theo thẻ',
+		};
+		$('.dlh-tb-dd .dropdown-toggle .fw-semibold').each(function () {
+			var $el = $(this);
+			var key = $el.text().trim().toLowerCase();
+			Object.keys(labels).forEach(function (k) {
+				if (key.indexOf(k) !== -1 || $el.text().trim() === k) {
+					$el.text(labels[k]);
+				}
+			});
+		});
+		// Match by NodeBB component attribute
+		$('[component="category/dropdown"] .dropdown-toggle .fw-semibold').each(function () {
+			if (!$(this).closest('.category-item').length) {
+				$(this).text('Theo chương');
+			}
+		});
+		$('[component="tag/filter"] .dropdown-toggle .fw-semibold').each(function () {
+			if (!$(this).data('dlh-selected')) {
+				$(this).text('Theo thẻ');
+			}
+		});
+	}
+
 	// ═══ DATE FORMAT — Vietnamese relative + absolute dates ═══
 	function formatDates() {
 		$('.timeago').each(function () {
@@ -303,6 +331,7 @@ $(document).ready(function () {
 		initFontSize();
 		initTimeago();
 		formatCompactNumbers();
+		relabelFilters();
 	});
 
 	// Initial state
@@ -310,6 +339,7 @@ $(document).ready(function () {
 	updateDesktopNav();
 	updateStats();
 	updateGarland();
+	relabelFilters();
 	initFontSize();
 	initTimeago();
 	formatCompactNumbers();
