@@ -1,6 +1,17 @@
 // ══════════════════════════════════════
-// WIDGET OVERRIDES — Restyle NodeBB default widgets to journal theme
+// WIDGET & NODEBB OVERRIDES — Restyle defaults to journal theme
 // ══════════════════════════════════════
+
+// Hide default filter bar — replaced by .dlh-tb tab bar
+// Keep in DOM so JS dropdowns still work
+[component="category/controls"] {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+}
 
 // Online users widget — "Đang online" card
 // Default: .card.card-header with Bootstrap grid of user links
