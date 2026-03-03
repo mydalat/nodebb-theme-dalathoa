@@ -239,9 +239,7 @@ $(document).ready(function () {
 			var $toggle = $wrapper.find('.dropdown-toggle').first();
 			if ($toggle.length) {
 				e.stopPropagation();
-				// Use Bootstrap 5 dropdown API
-				var dd = bootstrap.Dropdown.getOrCreateInstance($toggle[0]);
-				dd.toggle();
+				$toggle.dropdown('toggle');
 			}
 		} else if (action === 'reset') {
 			// "Tất cả" — reload current page without filters
