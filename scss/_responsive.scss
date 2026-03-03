@@ -100,6 +100,11 @@
   }
 
   .dlh-prof-stats-grid { grid-template-columns: 1fr 1fr 1fr; }
+
+  // Subcat header — more breathing room
+  .dlh-subcat-header { padding: 24px; }
+  .dlh-subcat-header-bg { inset: 10px; }
+  .dlh-subcat-children-grid { grid-template-columns: repeat(4, 1fr); }
 }
 
 // ── DESKTOP ≥768px ─────────────────────
@@ -186,6 +191,12 @@
   .dlh-btt { bottom: 32px; right: 32px; }
 
   .dlh-prof-stats-grid { grid-template-columns: repeat(4, 1fr); }
+
+  // Subcat child hover on desktop
+  .dlh-subcat-child:hover {
+    transform: translateY(-1px);
+    box-shadow: var(--dlh-sh);
+  }
 }
 
 // ── WIDE ≥1024px ───────────────────────

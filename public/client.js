@@ -222,6 +222,39 @@ $(document).ready(function () {
 		localStorage.setItem('dlh-font-size', cls || 'default');
 	};
 
+	// ═══ SUBSCRIBE BUTTON — Toggle follow/unfollow category ═══
+	$(document).on('click', '.dlh-subcat-subscribe', function () {
+		if (!config.loggedIn) {
+			ajaxify.go('login');
+			return;
+		}
+		var $btn = $(this);
+		var cid = $btn.attr('data-cid');
+		var isSubscribed = $btn.hasClass('subscribed');
+		var endpoint = isSubscribed ? 'ignore' : 'watch';
+
+		require(['api'], function (api) {
+			api.put('/categories/' + cid + '/' + endpoint).then(function () {
+				$btn.toggleClass('subscribed');
+				$btn.find('.dlh-subcat-subscribe-text').text(
+					$btn.hasClass('subscribed') ? 'Đang theo dõi' : 'Theo dõi'
+				);
+			});
+		});
+	});
+
+	// ═══ SUBCAT CHILD — Active state on current category ═══
+	function highlightActiveSubcat() {
+		var url = window.location.pathname;
+		$('.dlh-subcat-child').each(function () {
+			var $el = $(this);
+			var href = $el.attr('href');
+			if (href && url.indexOf(href) !== -1) {
+				$el.addClass('on');
+			}
+		});
+	}
+
 	// ═══ TAB BAR — "Tất cả" resets filters ═══
 	$(document).on('click', '[data-dlh-action="reset"]', function () {
 		ajaxify.go('recent');
@@ -332,6 +365,7 @@ $(document).ready(function () {
 		initTimeago();
 		formatCompactNumbers();
 		relabelFilters();
+		highlightActiveSubcat();
 	});
 
 	// Initial state
@@ -340,6 +374,7 @@ $(document).ready(function () {
 	updateStats();
 	updateGarland();
 	relabelFilters();
+	highlightActiveSubcat();
 	initFontSize();
 	initTimeago();
 	formatCompactNumbers();
