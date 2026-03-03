@@ -10,10 +10,7 @@
   padding: 14px 0;
   border-bottom: 1px dashed var(--dlh-bdr);
   margin-bottom: 16px;
-  overflow-x: auto;
-  -webkit-overflow-scrolling: touch;
-  scrollbar-width: none;
-  &::-webkit-scrollbar { display: none; }
+  flex-wrap: wrap;
 }
 
 .dlh-tb-b {

@@ -133,7 +133,8 @@
   border: none;
 }
 
-.dlh-btn-write {
+// Hide write button in navbar (shown on desktop via _responsive.scss)
+.dlh-nav .dlh-btn-write {
   display: none;
 }
 

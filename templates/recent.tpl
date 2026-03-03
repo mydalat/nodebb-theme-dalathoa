@@ -41,29 +41,7 @@
 <div class="dlh-grid2">
 	<!-- Main Column -->
 	<div class="dlh-main">
-		<!-- Tab bar with integrated filter dropdowns -->
-		<div class="dlh-tb" component="category/controls">
-			<button class="dlh-tb-b on" data-filter="recent" data-dlh-action="reset">
-				<span class="dlh-i dlh-i-14"><svg viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z"/><path d="M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z"/></svg></span>
-				Tất cả
-			</button>
-			<!-- Category filter — import full NodeBB dropdown, restyle trigger -->
-			<div class="dlh-tb-dd">
-				<!-- IMPORT partials/category/filter-dropdown-left.tpl -->
-			</div>
-			<!-- Tag filter — import full NodeBB dropdown, restyle trigger -->
-			<div class="dlh-tb-dd">
-				<!-- IMPORT partials/tags/filter-dropdown-left.tpl -->
-			</div>
-
-			<!-- Tools & new topic -->
-			<!-- IMPORT partials/category/tools-dropdown-left.tpl -->
-			<div class="dlh-tb-actions">
-				{{{ if canPost }}}
-				<!-- IMPORT partials/buttons/newTopic.tpl -->
-				{{{ end }}}
-			</div>
-		</div>
+		<!-- IMPORT partials/topic-list-bar.tpl -->
 		<div class="dlh-stitle">
 			<span class="dlh-i dlh-i-20"><svg viewBox="0 0 24 24"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></span>
 			Mới nhất
