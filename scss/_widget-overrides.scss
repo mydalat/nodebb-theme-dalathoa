@@ -1,0 +1,56 @@
+// ══════════════════════════════════════
+// WIDGET OVERRIDES — Restyle NodeBB default widgets to journal theme
+// ══════════════════════════════════════
+
+// Online users widget — "Đang online" card
+// Default: .card.card-header with Bootstrap grid of user links
+[data-widget-area] > .card.card-header {
+  background: var(--dlh-hl);
+  border: 1px solid var(--dlh-sec);
+  border-radius: var(--dlh-r);
+  padding: 14px 16px;
+  box-shadow: var(--dlh-sh);
+  font-family: var(--dlh-hand);
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--dlh-pri);
+  margin-bottom: 16px;
+
+  // User grid — stack vertically, remove Bootstrap grid
+  .row {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin: 10px 0 0;
+  }
+
+  // Each user link
+  .btn.btn-ghost {
+    padding: 6px 8px;
+    border-radius: var(--dlh-r);
+    font-family: var(--dlh-sans);
+    transition: background 0.12s;
+
+    &:hover, &:active {
+      background: rgba(253, 189, 51, 0.12);
+    }
+
+    // Avatar size override
+    .avatar {
+      --avatar-size: 32px !important;
+    }
+
+    // User name
+    .fw-semibold {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--dlh-ink);
+    }
+
+    // Status/time
+    .text-xs.text-muted {
+      font-size: var(--dlh-fs-sm);
+      color: var(--dlh-ok);
+    }
+  }
+}
