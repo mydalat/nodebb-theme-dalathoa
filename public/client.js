@@ -39,8 +39,8 @@ $(document).ready(function () {
 			tab = 'recent';
 		} else if (/^categories/.test(url) || /^category\//.test(url)) {
 			tab = 'categories';
-		} else if (/^user\//.test(url)) {
-			tab = 'profile';
+		} else if (/^popular/.test(url)) {
+			tab = 'popular';
 		}
 
 		$tabs.filter('[data-dlh-tab="' + tab + '"]').addClass('on');
@@ -172,27 +172,6 @@ $(document).ready(function () {
 		pulling = false;
 	}, { passive: true });
 
-	// ═══ STATS — Populate hero stats via NodeBB global config ═══
-	function updateStats() {
-		if (ajaxify.data && ajaxify.data.template && ajaxify.data.template.name === 'recent') {
-			// Use socket to get global stats (no admin auth required)
-			require(['api'], function (api) {
-				api.get('/admin/dashboard', {}).then(function (data) {
-					if (data && data.stats) {
-						$('[component="dlh/stat-users"]').text(data.stats.users || '—');
-						$('[component="dlh/stat-topics"]').text(data.stats.topics || '—');
-						$('[component="dlh/stat-posts"]').text(data.stats.posts || '—');
-					}
-				}).catch(function () {
-					// Fallback: use config if available
-					if (ajaxify.data.topicCount !== undefined) {
-						$('[component="dlh/stat-topics"]').text(ajaxify.data.topicCount);
-					}
-				});
-			});
-		}
-	}
-
 	// ═══ GARLAND — Show only in December–January (holiday season) ═══
 	function updateGarland() {
 		var month = new Date().getMonth(); // 0-indexed
@@ -223,7 +202,7 @@ $(document).ready(function () {
 	};
 
 	// ═══ SUBSCRIBE BUTTON — Toggle follow/unfollow category ═══
-	$(document).on('click', '.dlh-subcat-subscribe', function () {
+	$(document).on('click', '[component="category/subscribe"]', function () {
 		if (!config.loggedIn) {
 			ajaxify.go('login');
 			return;
@@ -360,7 +339,6 @@ $(document).ready(function () {
 	$(window).on('action:ajaxify.end', function () {
 		updateBottomNav();
 		updateDesktopNav();
-		updateStats();
 		initFontSize();
 		initTimeago();
 		formatCompactNumbers();
@@ -371,7 +349,6 @@ $(document).ready(function () {
 	// Initial state
 	updateBottomNav();
 	updateDesktopNav();
-	updateStats();
 	updateGarland();
 	relabelFilters();
 	highlightActiveSubcat();

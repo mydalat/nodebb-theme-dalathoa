@@ -30,7 +30,7 @@
 				<span><svg viewBox="0 0 24 24" width="14" height="14"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="3" fill="none" stroke="currentColor" stroke-width="2"/></svg> <b>{humanReadableNumber(pageCount)}</b> đọc</span>
 				<span><svg viewBox="0 0 24 24" width="14" height="14"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="7" r="4" fill="none" stroke="currentColor" stroke-width="2"/></svg> <b>{humanReadableNumber(memberCount)}</b> tác giả</span>
 			</div>
-			<button class="dlh-subcat-subscribe" data-cid="{./cid}">
+			<button class="dlh-subcat-subscribe" component="category/subscribe" data-cid="{./cid}">
 				<svg viewBox="0 0 24 24" width="14" height="14"><path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9" fill="none" stroke="currentColor" stroke-width="2"/><path d="M13.73 21a2 2 0 01-3.46 0" fill="none" stroke="currentColor" stroke-width="2"/></svg>
 				<span class="dlh-subcat-subscribe-text">Theo dõi</span>
 			</button>

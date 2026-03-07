@@ -6,11 +6,11 @@
 	<nav class="dlh-bottom-nav" component="dlh/bottom-nav">
 		<a class="dlh-bottom-nav-item" href="{relative_path}/" data-dlh-tab="home">
 			<span class="dlh-i dlh-i-20"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></span>
-			Nhật ký
+			Trang chủ
 		</a>
 		<a class="dlh-bottom-nav-item" href="{relative_path}/categories" data-dlh-tab="categories">
 			<span class="dlh-i dlh-i-20"><svg viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/></svg></span>
-			Chương
+			Chuyên mục
 		</a>
 		{{{ if config.searchEnabled }}}
 		<a class="dlh-bottom-nav-item" href="{relative_path}/search" data-dlh-tab="search">
@@ -21,7 +21,7 @@
 		{{{ if config.loggedIn }}}
 		<a component="notifications/icon" class="dlh-bottom-nav-item" href="{relative_path}/notifications" data-dlh-tab="notifications">
 			<span class="dlh-i dlh-i-20"><svg viewBox="0 0 24 24"><path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 01-3.46 0"/></svg></span>
-			Báo
+			Thông báo
 			<span component="notifications/count" class="dlh-bnb {{{ if !unreadCount.notification }}}hidden{{{ end }}}"></span>
 		</a>
 		<a class="dlh-bottom-nav-item" href="{relative_path}/user/{user.userslug}" data-dlh-tab="profile">

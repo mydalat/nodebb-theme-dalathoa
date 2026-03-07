@@ -11,31 +11,8 @@
 		<div class="dlh-j-cover-stamp">✦ EST. 2006 ✦</div>
 		<h1>Nhật ký<br><em>Đà Lạt</em></h1>
 		<p>Mỗi câu chuyện là một trang nhật ký — nơi người Đà Lạt kể về thành phố sương mù qua ảnh xưa, vườn yên, và những đổi thay.</p>
-		<div class="dlh-j-stats">
-			<div class="dlh-j-stat">
-				<div class="n" component="dlh/stat-users">—</div>
-				<div class="l">Tác giả</div>
-			</div>
-			<div class="dlh-j-stat">
-				<div class="n" component="dlh/stat-topics">—</div>
-				<div class="l">Trang viết</div>
-			</div>
-			<div class="dlh-j-stat">
-				<div class="n" component="dlh/stat-posts">—</div>
-				<div class="l">Lượt đọc</div>
-			</div>
-		</div>
 	</div>
 </section>
-
-<!-- Mobile tags bar -->
-<div class="dlh-mobile-tags">
-	<span class="dlh-tp hot">#đàlạt</span>
-	<span class="dlh-tp">#đôthịhóa</span>
-	<span class="dlh-tp hot">#ngườiđàlạt</span>
-	<span class="dlh-tp">#ảnhxưa</span>
-	<span class="dlh-tp">#vườnyên</span>
-</div>
 
 <!-- ═══ MAIN GRID ═══ -->
 <div class="dlh-grid2">

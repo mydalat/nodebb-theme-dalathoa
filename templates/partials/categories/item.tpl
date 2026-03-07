@@ -12,7 +12,7 @@
 			{{{ if ./descriptionParsed }}}
 			<p class="dlh-cat-desc">{./descriptionParsed}</p>
 			{{{ end }}}
-			<div class="dlh-cat-meta">{./totalTopicCount} trang · {./totalPostCount} bình luận</div>
+			<div class="dlh-cat-meta">{humanReadableNumber(./totalTopicCount)} trang · {humanReadableNumber(./totalPostCount)} bình luận</div>
 		</div>
 	</a>
 	{{{ if ./children.length }}}

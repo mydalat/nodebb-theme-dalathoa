@@ -39,22 +39,20 @@
 		<div class="dlh-nav-tabs">
 			<a class="dlh-nav-tab" href="{relative_path}/" data-dlh-tab="home">
 				<span class="dlh-i dlh-i-18"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></span>
-				Nhật ký
+				Trang chủ
 			</a>
 			<a class="dlh-nav-tab" href="{relative_path}/recent" data-dlh-tab="recent">
-				<span class="dlh-i dlh-i-18"><svg viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z"/><path d="M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z"/></svg></span>
-				Bài viết
+				<span class="dlh-i dlh-i-18"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></span>
+				Mới nhất
 			</a>
 			<a class="dlh-nav-tab" href="{relative_path}/categories" data-dlh-tab="categories">
 				<span class="dlh-i dlh-i-18"><svg viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/></svg></span>
-				Chương
+				Chuyên mục
 			</a>
-			{{{ if config.loggedIn }}}
-			<a class="dlh-nav-tab" href="{relative_path}/user/{user.userslug}" data-dlh-tab="profile">
-				<span class="dlh-i dlh-i-18"><svg viewBox="0 0 24 24"><path d="M17 3a2.83 2.83 0 114 4L7.5 20.5 2 22l1.5-5.5z"/></svg></span>
-				Tác giả
+			<a class="dlh-nav-tab" href="{relative_path}/popular" data-dlh-tab="popular">
+				<span class="dlh-i dlh-i-18"><svg viewBox="0 0 24 24"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></span>
+				Nổi bật
 			</a>
-			{{{ end }}}
 		</div>
 		<div class="spacer"></div>
 		<div class="dlh-nav-r">
