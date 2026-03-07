@@ -7,14 +7,7 @@
 @media (min-width: 640px) {
   .dlh-tr { padding: 14px 16px; gap: 12px; }
   .dlh-tr-pg { display: block; }
-
-  .dlh-tr-av { width: 36px; height: 36px; }
-  .dlh-ct { min-height: 24px; padding: 4px 10px; }
-  .dlh-mt { min-height: auto; padding: 3px 8px; }
   .dlh-tr-tag { min-height: auto; padding: 2px 6px; }
-
-  // Hero larger on tablet
-  .dlh-j-cover { padding: 40px 20px; }
 
   // Entry header — paper lines + left margin
   .dlh-entry-head {
@@ -163,9 +156,8 @@
 
   // Desktop hover effects
   .dlh-tr:hover {
-    border-color: var(--dlh-bdr-w);
-    box-shadow: var(--dlh-sh2);
     transform: rotate(-0.3deg) translateY(-2px);
+    box-shadow: var(--dlh-sh2);
   }
 
   .dlh-post-card:hover {

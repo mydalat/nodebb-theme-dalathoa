@@ -26,8 +26,12 @@
 .dlh-entry-meta {
   display: flex;
   flex-wrap: wrap;
-  gap: 6px;
+  gap: 8px;
   align-items: center;
+  font-size: var(--dlh-fs-sm);
+  color: var(--dlh-txt3);
+
+  b { color: var(--dlh-txt); }
 }
 
 .dlh-entry-labels {
@@ -89,14 +93,16 @@
 }
 
 .dlh-post-op {
-  font-size: var(--dlh-fs-xs);
-  padding: 2px 8px;
-  background: var(--dlh-sec);
-  color: var(--dlh-pri);
-  border-radius: 3px;
+  font-family: var(--dlh-hand);
+  font-size: 12px;
+  padding: 1px 8px;
+  background: var(--dlh-acc);
+  color: #fff;
+  border-radius: 2px;
   font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
+  margin-left: 6px;
+  transform: rotate(-2deg);
+  display: inline-block;
 }
 
 .dlh-post-time { font-size: var(--dlh-fs-sm); }

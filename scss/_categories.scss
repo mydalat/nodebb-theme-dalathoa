@@ -144,7 +144,7 @@
 
 // ═══ SUBCATEGORY HEADER BANNER ═══
 .dlh-subcat-header {
-  background: linear-gradient(135deg, var(--dlh-pri) 0%, #1a2008 100%);
+  background: linear-gradient(135deg, var(--dlh-pri) 0%, #3e4a1a 50%, #4a5520 100%);
   color: #fff;
   border-radius: var(--dlh-rl);
   padding: 16px;
@@ -155,10 +155,16 @@
 
 .dlh-subcat-header-bg {
   position: absolute;
-  inset: 8px;
-  border: 1px dashed rgba(253, 189, 51, 0.2);
-  border-radius: 6px;
-  pointer-events: none;
+  inset: 0;
+  background: linear-gradient(135deg, var(--dlh-pri) 0%, #3e4a1a 50%, #4a5520 100%);
+
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 8px;
+    border: 1px dashed rgba(253, 189, 51, 0.2);
+    border-radius: 6px;
+  }
 }
 
 .dlh-subcat-header-content {
@@ -172,14 +178,13 @@
 .dlh-subcat-icon {
   width: 56px;
   height: 56px;
-  border-radius: 12px;
-  background: rgba(253, 189, 51, 0.15);
+  border-radius: var(--dlh-r);
+  background: rgba(255, 255, 255, 0.08);
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 24px;
+  font-size: 36px;
   flex-shrink: 0;
-  color: var(--dlh-sec);
 }
 
 .dlh-subcat-info {
@@ -223,20 +228,24 @@
 }
 
 .dlh-subcat-subscribe {
+  position: relative;
+  z-index: 2;
   display: inline-flex;
   align-items: center;
   gap: 6px;
   margin-top: 12px;
-  padding: 6px 16px;
-  background: rgba(255, 255, 255, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 10px 20px;
+  background: rgba(253, 189, 51, 0.15);
+  border: 1px solid rgba(253, 189, 51, 0.3);
   border-radius: 20px;
-  color: #fff;
-  font-size: 13px;
+  color: var(--dlh-sec);
+  font-size: var(--dlh-fs-sm);
+  font-weight: 600;
   cursor: pointer;
+  min-height: var(--dlh-touch-sm);
   transition: all 0.2s;
 
-  &:hover { background: rgba(255, 255, 255, 0.2); }
+  &:hover { background: rgba(253, 189, 51, 0.25); }
 
   &.subscribed {
     background: var(--dlh-sec);
@@ -270,14 +279,13 @@
 }
 
 .dlh-subcat-child {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  padding: 10px 12px;
+  display: block;
+  padding: 14px 12px;
   background: var(--dlh-paper);
   border: 1px solid var(--dlh-bdr);
   border-bottom: 3px solid var(--dlh-bdr);
   border-radius: var(--dlh-r);
+  text-align: center;
   text-decoration: none;
   color: inherit;
   cursor: pointer;
@@ -293,23 +301,11 @@
   &:active { transform: scale(0.96); }
 }
 
-.dlh-subcat-child-icon {
-  font-size: 18px;
-  flex-shrink: 0;
-  width: 28px;
-  text-align: center;
-}
-
 .dlh-subcat-child-name {
   font-family: var(--dlh-hand);
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 700;
   color: var(--dlh-pri);
-  flex: 1;
-  min-width: 0;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
 }
 
 .dlh-subcat-child-count {

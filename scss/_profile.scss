@@ -13,6 +13,61 @@
   margin-bottom: 20px;
 }
 
+.dlh-prof-role {
+  display: inline-block;
+  padding: 3px 12px;
+  border: 2px solid var(--dlh-acc);
+  font-size: 9px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--dlh-acc);
+  transform: rotate(-2deg);
+  margin: 4px 0 12px;
+}
+
+.dlh-prof-bio {
+  font-family: var(--dlh-serif);
+  font-size: 13px;
+  color: var(--dlh-txt2);
+  font-style: italic;
+  line-height: 1.65;
+  max-width: 380px;
+  margin: 0 auto 14px;
+}
+
+.dlh-prof-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+  padding-top: 14px;
+  border-top: 1px dashed var(--dlh-bdr);
+
+  .pn {
+    font-family: var(--dlh-hand);
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--dlh-txt);
+  }
+  .pl {
+    font-size: 8px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--dlh-txt3);
+  }
+}
+
+.dlh-prof-info-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 6px 0;
+  font-size: var(--dlh-fs-sm);
+  color: var(--dlh-txt2);
+
+  span:first-child { color: var(--dlh-txt3); }
+  b { font-weight: 600; }
+}
+
 .dlh-stat-time {
   font-size: 14px;
 }

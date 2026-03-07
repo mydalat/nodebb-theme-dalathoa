@@ -95,13 +95,13 @@
 // Category tags (colored pills)
 .dlh-ct {
   font-size: var(--dlh-fs-xs);
-  padding: 2px 8px;
+  padding: 4px 10px;
   font-weight: 700;
   color: #fff;
   display: inline-flex;
   align-items: center;
   border-radius: 3px;
-  min-height: 20px;
+  min-height: 24px;
   white-space: nowrap;
   line-height: 1.4;
 }
@@ -117,12 +117,11 @@
 // Meta tags (bordered)
 .dlh-mt {
   font-size: var(--dlh-fs-xs);
-  padding: 6px 10px;
+  padding: 3px 8px;
   border: 1px dashed var(--dlh-bdr);
   color: var(--dlh-txt3);
   border-radius: 3px;
   white-space: nowrap;
-  min-height: var(--dlh-touch-min);
   display: inline-flex;
   align-items: center;
 }
